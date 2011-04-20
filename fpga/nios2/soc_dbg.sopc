@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<system name="soc">
+<system name="soc_dbg">
  <parameter name="bonusData"><![CDATA[bonusData 
 {
    element altpll_soc
@@ -30,7 +30,7 @@
    {
       datum _sortIndex
       {
-         value = "5";
+         value = "9";
          type = "int";
       }
       datum megawizard_uipreferences
@@ -74,7 +74,7 @@
    {
       datum _sortIndex
       {
-         value = "3";
+         value = "7";
          type = "int";
       }
       datum sopceditor_expanded
@@ -87,7 +87,7 @@
    {
       datum _sortIndex
       {
-         value = "7";
+         value = "3";
          type = "int";
       }
       datum megawizard_uipreferences
@@ -121,7 +121,7 @@
    {
       datum _sortIndex
       {
-         value = "6";
+         value = "10";
          type = "int";
       }
       datum megawizard_uipreferences
@@ -139,7 +139,7 @@
    {
       datum _sortIndex
       {
-         value = "10";
+         value = "6";
          type = "int";
       }
       datum sopceditor_expanded
@@ -152,7 +152,7 @@
    {
       datum _sortIndex
       {
-         value = "9";
+         value = "5";
          type = "int";
       }
       datum sopceditor_expanded
@@ -169,27 +169,11 @@
          type = "long";
       }
    }
-   element pio.s1
-   {
-      datum baseAddress
-      {
-         value = "84025376";
-         type = "long";
-      }
-   }
    element ddr_sdram.s1
    {
       datum baseAddress
       {
          value = "33554432";
-         type = "long";
-      }
-   }
-   element lan91c111.s1
-   {
-      datum baseAddress
-      {
-         value = "83951616";
          type = "long";
       }
    }
@@ -209,6 +193,14 @@
          type = "long";
       }
    }
+   element pio.s1
+   {
+      datum baseAddress
+      {
+         value = "84025376";
+         type = "long";
+      }
+   }
    element onewire.s1
    {
       datum baseAddress
@@ -217,11 +209,22 @@
          type = "long";
       }
    }
+   element lan91c111.s1
+   {
+      datum baseAddress
+      {
+         value = "83951616";
+         type = "long";
+      }
+   }
+   element soc_dbg
+   {
+   }
    element timer
    {
       datum _sortIndex
       {
-         value = "8";
+         value = "4";
          type = "int";
       }
       datum sopceditor_expanded
@@ -234,7 +237,7 @@
    {
       datum _sortIndex
       {
-         value = "4";
+         value = "8";
          type = "int";
       }
       datum megawizard_uipreferences
@@ -258,10 +261,10 @@
  <parameter name="globalResetBus" value="true" />
  <parameter name="hdlLanguage" value="VERILOG" />
  <parameter name="maxAdditionalLatency" value="0" />
- <parameter name="projectName" value="ecs8_nios2" />
+ <parameter name="projectName" value="ecs8_nios2_dbg.qpf" />
  <parameter name="sopcBorderPoints" value="true" />
  <parameter name="systemHash" value="-12122528122" />
- <parameter name="timeStamp" value="1303330410203" />
+ <parameter name="timeStamp" value="1303332016755" />
  <module kind="clock_source" version="10.1" enabled="1" name="clk_pin">
   <parameter name="clockFrequency" value="32768000" />
   <parameter name="clockFrequencyKnown" value="true" />

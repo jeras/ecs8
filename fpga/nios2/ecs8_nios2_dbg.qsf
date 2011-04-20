@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone II"
 set_global_assignment -name DEVICE EP2C8Q208C8
-set_global_assignment -name TOP_LEVEL_ENTITY ecs8_nios2
+set_global_assignment -name TOP_LEVEL_ENTITY ecs8_nios2_dbg
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "10.1 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "21:03:12  APRIL 20, 2011"
 set_global_assignment -name LAST_QUARTUS_VERSION "10.1 SP1"
@@ -49,3 +49,7 @@ set_global_assignment -name DEVICE_FILTER_PIN_COUNT 208
 set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 8
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name QIP_FILE soc_dbg.qip
+
+set_global_assignment -name PRE_FLOW_SCRIPT_FILE "quartus_sh:auto_add_ddr_constraints.tcl"
+set_global_assignment -name POST_FLOW_SCRIPT_FILE "quartus_sh:auto_verify_ddr_timing.tcl"
+set_global_assignment -name QIP_FILE ddr_sdram.qip
