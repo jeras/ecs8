@@ -50,6 +50,405 @@ set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 8
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name QIP_FILE soc_dbg.qip
 
-set_global_assignment -name PRE_FLOW_SCRIPT_FILE "quartus_sh:auto_add_ddr_constraints.tcl"
 set_global_assignment -name POST_FLOW_SCRIPT_FILE "quartus_sh:auto_verify_ddr_timing.tcl"
 set_global_assignment -name QIP_FILE ddr_sdram.qip
+
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name DQS_FREQUENCY "98.304001 MHz" -to ddr_dqs
+set_instance_assignment -name OUTPUT_ENABLE_GROUP 1 -to ddr_dm
+set_instance_assignment -name OUTPUT_ENABLE_GROUP 1 -to ddr_dqs
+set_instance_assignment -name OUTPUT_ENABLE_GROUP 1 -to ddr_dq
+set_instance_assignment -name STRATIX_DECREASE_INPUT_DELAY_TO_INTERNAL_CELLS ON -to ddr_dq
+set_instance_assignment -name TCO_REQUIREMENT "6 ns" -to clk_to_sdram
+set_instance_assignment -name TCO_REQUIREMENT "6 ns" -to clk_to_sdram_n
+set_instance_assignment -name TPD_REQUIREMENT "3.6 ns" -from *dq_enable* -to *
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_ras_n
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_cas_n
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_we_n
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_a[0]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_a[1]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_a[2]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_a[3]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_a[4]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_a[5]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_a[6]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_a[7]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_a[8]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_a[9]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_a[10]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_a[11]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_a[12]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_ba[0]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_ba[1]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dm[0]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dm[1]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dq[0]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dq[1]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dq[2]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dq[3]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dq[4]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dq[5]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dq[6]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dq[7]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dq[8]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dq[9]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dq[10]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dq[11]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dq[12]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dq[13]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dq[14]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dq[15]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dqs[0]
+set_instance_assignment -name IO_STANDARD "SSTL-2 CLASS I" -to ddr_dqs[1]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ddr_ras_n
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ddr_cas_n
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ddr_we_n
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ddr_a[0]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ddr_a[1]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ddr_a[2]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ddr_a[3]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ddr_a[4]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ddr_a[5]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ddr_a[6]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ddr_a[7]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ddr_a[8]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ddr_a[9]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ddr_a[10]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ddr_a[11]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ddr_a[12]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ddr_ba[0]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ddr_ba[1]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dm[0]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dm[1]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dq[0]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dq[1]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dq[2]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dq[3]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dq[4]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dq[5]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dq[6]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dq[7]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dq[8]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dq[9]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dq[10]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dq[11]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dq[12]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dq[13]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dq[14]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dq[15]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dqs[0]
+set_instance_assignment -name OUTPUT_PIN_LOAD 4 -to ddr_dqs[1]
+set_instance_assignment -name OUTPUT_PIN_LOAD 2 -to ddr_ras_n
+set_instance_assignment -name OUTPUT_PIN_LOAD 2 -to ddr_cas_n
+set_instance_assignment -name OUTPUT_PIN_LOAD 2 -to ddr_we_n
+set_instance_assignment -name OUTPUT_PIN_LOAD 2 -to ddr_a[0]
+set_instance_assignment -name OUTPUT_PIN_LOAD 2 -to ddr_a[1]
+set_instance_assignment -name OUTPUT_PIN_LOAD 2 -to ddr_a[2]
+set_instance_assignment -name OUTPUT_PIN_LOAD 2 -to ddr_a[3]
+set_instance_assignment -name OUTPUT_PIN_LOAD 2 -to ddr_a[4]
+set_instance_assignment -name OUTPUT_PIN_LOAD 2 -to ddr_a[5]
+set_instance_assignment -name OUTPUT_PIN_LOAD 2 -to ddr_a[6]
+set_instance_assignment -name OUTPUT_PIN_LOAD 2 -to ddr_a[7]
+set_instance_assignment -name OUTPUT_PIN_LOAD 2 -to ddr_a[8]
+set_instance_assignment -name OUTPUT_PIN_LOAD 2 -to ddr_a[9]
+set_instance_assignment -name OUTPUT_PIN_LOAD 2 -to ddr_a[10]
+set_instance_assignment -name OUTPUT_PIN_LOAD 2 -to ddr_a[11]
+set_instance_assignment -name OUTPUT_PIN_LOAD 2 -to ddr_a[12]
+set_instance_assignment -name OUTPUT_PIN_LOAD 2 -to ddr_ba[0]
+set_instance_assignment -name OUTPUT_PIN_LOAD 2 -to ddr_ba[1]
+set_instance_assignment -name CUT ON -from ddr_dqs[0] -to *
+set_instance_assignment -name CUT ON -from ddr_dqs[1] -to *
+set_instance_assignment -name TPD_REQUIREMENT "1.7 ns" -from *input_* -to *resynched_data*
+set_instance_assignment -name ADV_NETLIST_OPT_ALLOWED "NEVER ALLOW" -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io"
+set_instance_assignment -name REMOVE_DUPLICATE_REGISTERS OFF -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io"
+set_instance_assignment -name PRESERVE_FANOUT_FREE_NODE ON -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|resynched_data"
+set_location_assignment PIN_185 -to ddr_dq[0]
+set_location_assignment LAB_X15_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:0:dq_io|ddio_bidir_c0l:auto_generated|input_cell_h[0]"
+set_location_assignment LAB_X15_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:0:dq_io|ddio_bidir_c0l:auto_generated|input_cell_l[0]"
+set_location_assignment LAB_X15_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:0:dq_io|ddio_bidir_c0l:auto_generated|input_latch_l[0]"
+set_location_assignment LAB_X15_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:0:dq_io|ddio_bidir_c0l:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X15_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:0:dq_io|ddio_bidir_c0l:auto_generated|output_cell_L[0]"
+set_location_assignment LAB_X15_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:0:dq_io|ddio_bidir_c0l:auto_generated|oe_cell"
+set_location_assignment LAB_X14_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|resynched_data[0]"
+set_location_assignment LAB_X14_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|resynched_data[8]"
+set_location_assignment PIN_188 -to ddr_dq[1]
+set_location_assignment LAB_X13_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:1:dq_io|ddio_bidir_c0l:auto_generated|input_cell_h[0]"
+set_location_assignment LAB_X13_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:1:dq_io|ddio_bidir_c0l:auto_generated|input_cell_l[0]"
+set_location_assignment LAB_X13_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:1:dq_io|ddio_bidir_c0l:auto_generated|input_latch_l[0]"
+set_location_assignment LAB_X13_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:1:dq_io|ddio_bidir_c0l:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X13_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:1:dq_io|ddio_bidir_c0l:auto_generated|output_cell_L[0]"
+set_location_assignment LAB_X13_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:1:dq_io|ddio_bidir_c0l:auto_generated|oe_cell"
+set_location_assignment LAB_X12_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|resynched_data[1]"
+set_location_assignment LAB_X12_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|resynched_data[9]"
+set_location_assignment PIN_189 -to ddr_dq[2]
+set_location_assignment LAB_X13_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:2:dq_io|ddio_bidir_c0l:auto_generated|input_cell_h[0]"
+set_location_assignment LAB_X13_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:2:dq_io|ddio_bidir_c0l:auto_generated|input_cell_l[0]"
+set_location_assignment LAB_X13_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:2:dq_io|ddio_bidir_c0l:auto_generated|input_latch_l[0]"
+set_location_assignment LAB_X13_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:2:dq_io|ddio_bidir_c0l:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X13_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:2:dq_io|ddio_bidir_c0l:auto_generated|output_cell_L[0]"
+set_location_assignment LAB_X13_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:2:dq_io|ddio_bidir_c0l:auto_generated|oe_cell"
+set_location_assignment LAB_X12_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|resynched_data[2]"
+set_location_assignment LAB_X12_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|resynched_data[10]"
+set_location_assignment PIN_191 -to ddr_dq[3]
+set_location_assignment LAB_X13_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:3:dq_io|ddio_bidir_c0l:auto_generated|input_cell_h[0]"
+set_location_assignment LAB_X13_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:3:dq_io|ddio_bidir_c0l:auto_generated|input_cell_l[0]"
+set_location_assignment LAB_X13_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:3:dq_io|ddio_bidir_c0l:auto_generated|input_latch_l[0]"
+set_location_assignment LAB_X13_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:3:dq_io|ddio_bidir_c0l:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X13_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:3:dq_io|ddio_bidir_c0l:auto_generated|output_cell_L[0]"
+set_location_assignment LAB_X13_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:3:dq_io|ddio_bidir_c0l:auto_generated|oe_cell"
+set_location_assignment LAB_X12_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|resynched_data[3]"
+set_location_assignment LAB_X12_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|resynched_data[11]"
+set_location_assignment PIN_193 -to ddr_dq[4]
+set_location_assignment LAB_X10_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:4:dq_io|ddio_bidir_c0l:auto_generated|input_cell_h[0]"
+set_location_assignment LAB_X10_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:4:dq_io|ddio_bidir_c0l:auto_generated|input_cell_l[0]"
+set_location_assignment LAB_X10_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:4:dq_io|ddio_bidir_c0l:auto_generated|input_latch_l[0]"
+set_location_assignment LAB_X10_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:4:dq_io|ddio_bidir_c0l:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X10_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:4:dq_io|ddio_bidir_c0l:auto_generated|output_cell_L[0]"
+set_location_assignment LAB_X10_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:4:dq_io|ddio_bidir_c0l:auto_generated|oe_cell"
+set_location_assignment LAB_X9_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|resynched_data[4]"
+set_location_assignment LAB_X9_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|resynched_data[12]"
+set_location_assignment LAB_X9_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|dq_enable[0]"
+set_location_assignment LAB_X10_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|dq_enable_reset[0]"
+set_location_assignment PIN_195 -to ddr_dq[5]
+set_location_assignment LAB_X10_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:5:dq_io|ddio_bidir_c0l:auto_generated|input_cell_h[0]"
+set_location_assignment LAB_X10_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:5:dq_io|ddio_bidir_c0l:auto_generated|input_cell_l[0]"
+set_location_assignment LAB_X10_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:5:dq_io|ddio_bidir_c0l:auto_generated|input_latch_l[0]"
+set_location_assignment LAB_X10_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:5:dq_io|ddio_bidir_c0l:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X10_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:5:dq_io|ddio_bidir_c0l:auto_generated|output_cell_L[0]"
+set_location_assignment LAB_X10_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:5:dq_io|ddio_bidir_c0l:auto_generated|oe_cell"
+set_location_assignment LAB_X9_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|resynched_data[5]"
+set_location_assignment LAB_X9_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|resynched_data[13]"
+set_location_assignment PIN_201 -to ddr_dq[6]
+set_location_assignment LAB_X4_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:6:dq_io|ddio_bidir_c0l:auto_generated|input_cell_h[0]"
+set_location_assignment LAB_X4_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:6:dq_io|ddio_bidir_c0l:auto_generated|input_cell_l[0]"
+set_location_assignment LAB_X4_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:6:dq_io|ddio_bidir_c0l:auto_generated|input_latch_l[0]"
+set_location_assignment LAB_X4_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:6:dq_io|ddio_bidir_c0l:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X4_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:6:dq_io|ddio_bidir_c0l:auto_generated|output_cell_L[0]"
+set_location_assignment LAB_X4_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:6:dq_io|ddio_bidir_c0l:auto_generated|oe_cell"
+set_location_assignment LAB_X3_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|resynched_data[6]"
+set_location_assignment LAB_X3_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|resynched_data[14]"
+set_location_assignment PIN_203 -to ddr_dq[7]
+set_location_assignment LAB_X4_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:7:dq_io|ddio_bidir_c0l:auto_generated|input_cell_h[0]"
+set_location_assignment LAB_X4_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:7:dq_io|ddio_bidir_c0l:auto_generated|input_cell_l[0]"
+set_location_assignment LAB_X4_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:7:dq_io|ddio_bidir_c0l:auto_generated|input_latch_l[0]"
+set_location_assignment LAB_X4_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:7:dq_io|ddio_bidir_c0l:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X4_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:7:dq_io|ddio_bidir_c0l:auto_generated|output_cell_L[0]"
+set_location_assignment LAB_X4_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:\\g_dq_io:7:dq_io|ddio_bidir_c0l:auto_generated|oe_cell"
+set_location_assignment LAB_X3_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|resynched_data[7]"
+set_location_assignment LAB_X3_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|resynched_data[15]"
+set_location_assignment PIN_200 -to ddr_dqs[0]
+set_location_assignment LAB_X4_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:dqs_io|ddio_bidir_50l:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X4_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:dqs_io|ddio_bidir_50l:auto_generated|output_cell_L[0]"
+set_location_assignment LAB_X4_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:dqs_io|ddio_bidir_50l:auto_generated|oe_cell"
+set_location_assignment LAB_X3_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_bidir:dqs_io|ddio_bidir_50l:auto_generated|ext_oe_cell"
+set_location_assignment PIN_207 -to ddr_dm[0]
+set_location_assignment LAB_X2_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_out:dm_pin|ddio_out_sbf:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X2_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:0:g_ddr_io|altddio_out:dm_pin|ddio_out_sbf:auto_generated|output_cell_L[0]"
+set_instance_assignment -name ADV_NETLIST_OPT_ALLOWED "NEVER ALLOW" -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io"
+set_instance_assignment -name REMOVE_DUPLICATE_REGISTERS OFF -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io"
+set_instance_assignment -name PRESERVE_FANOUT_FREE_NODE ON -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|resynched_data"
+set_location_assignment PIN_161 -to ddr_dq[8]
+set_location_assignment LAB_X32_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:0:dq_io|ddio_bidir_c0l:auto_generated|input_cell_h[0]"
+set_location_assignment LAB_X32_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:0:dq_io|ddio_bidir_c0l:auto_generated|input_cell_l[0]"
+set_location_assignment LAB_X32_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:0:dq_io|ddio_bidir_c0l:auto_generated|input_latch_l[0]"
+set_location_assignment LAB_X32_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:0:dq_io|ddio_bidir_c0l:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X32_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:0:dq_io|ddio_bidir_c0l:auto_generated|output_cell_L[0]"
+set_location_assignment LAB_X32_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:0:dq_io|ddio_bidir_c0l:auto_generated|oe_cell"
+set_location_assignment LAB_X33_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|resynched_data[0]"
+set_location_assignment LAB_X33_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|resynched_data[8]"
+set_location_assignment PIN_162 -to ddr_dq[9]
+set_location_assignment LAB_X32_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:1:dq_io|ddio_bidir_c0l:auto_generated|input_cell_h[0]"
+set_location_assignment LAB_X32_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:1:dq_io|ddio_bidir_c0l:auto_generated|input_cell_l[0]"
+set_location_assignment LAB_X32_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:1:dq_io|ddio_bidir_c0l:auto_generated|input_latch_l[0]"
+set_location_assignment LAB_X32_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:1:dq_io|ddio_bidir_c0l:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X32_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:1:dq_io|ddio_bidir_c0l:auto_generated|output_cell_L[0]"
+set_location_assignment LAB_X32_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:1:dq_io|ddio_bidir_c0l:auto_generated|oe_cell"
+set_location_assignment LAB_X33_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|resynched_data[1]"
+set_location_assignment LAB_X33_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|resynched_data[9]"
+set_location_assignment PIN_163 -to ddr_dq[10]
+set_location_assignment LAB_X30_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:2:dq_io|ddio_bidir_c0l:auto_generated|input_cell_h[0]"
+set_location_assignment LAB_X30_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:2:dq_io|ddio_bidir_c0l:auto_generated|input_cell_l[0]"
+set_location_assignment LAB_X30_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:2:dq_io|ddio_bidir_c0l:auto_generated|input_latch_l[0]"
+set_location_assignment LAB_X30_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:2:dq_io|ddio_bidir_c0l:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X30_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:2:dq_io|ddio_bidir_c0l:auto_generated|output_cell_L[0]"
+set_location_assignment LAB_X30_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:2:dq_io|ddio_bidir_c0l:auto_generated|oe_cell"
+set_location_assignment LAB_X31_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|resynched_data[2]"
+set_location_assignment LAB_X31_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|resynched_data[10]"
+set_location_assignment PIN_164 -to ddr_dq[11]
+set_location_assignment LAB_X30_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:3:dq_io|ddio_bidir_c0l:auto_generated|input_cell_h[0]"
+set_location_assignment LAB_X30_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:3:dq_io|ddio_bidir_c0l:auto_generated|input_cell_l[0]"
+set_location_assignment LAB_X30_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:3:dq_io|ddio_bidir_c0l:auto_generated|input_latch_l[0]"
+set_location_assignment LAB_X30_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:3:dq_io|ddio_bidir_c0l:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X30_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:3:dq_io|ddio_bidir_c0l:auto_generated|output_cell_L[0]"
+set_location_assignment LAB_X30_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:3:dq_io|ddio_bidir_c0l:auto_generated|oe_cell"
+set_location_assignment LAB_X31_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|resynched_data[3]"
+set_location_assignment LAB_X31_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|resynched_data[11]"
+set_location_assignment PIN_165 -to ddr_dq[12]
+set_location_assignment LAB_X30_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:4:dq_io|ddio_bidir_c0l:auto_generated|input_cell_h[0]"
+set_location_assignment LAB_X30_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:4:dq_io|ddio_bidir_c0l:auto_generated|input_cell_l[0]"
+set_location_assignment LAB_X30_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:4:dq_io|ddio_bidir_c0l:auto_generated|input_latch_l[0]"
+set_location_assignment LAB_X30_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:4:dq_io|ddio_bidir_c0l:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X30_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:4:dq_io|ddio_bidir_c0l:auto_generated|output_cell_L[0]"
+set_location_assignment LAB_X30_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:4:dq_io|ddio_bidir_c0l:auto_generated|oe_cell"
+set_location_assignment LAB_X31_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|resynched_data[4]"
+set_location_assignment LAB_X31_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|resynched_data[12]"
+set_location_assignment LAB_X31_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|dq_enable[0]"
+set_location_assignment LAB_X30_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|dq_enable_reset[0]"
+set_location_assignment PIN_171 -to ddr_dq[13]
+set_location_assignment LAB_X28_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:5:dq_io|ddio_bidir_c0l:auto_generated|input_cell_h[0]"
+set_location_assignment LAB_X28_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:5:dq_io|ddio_bidir_c0l:auto_generated|input_cell_l[0]"
+set_location_assignment LAB_X28_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:5:dq_io|ddio_bidir_c0l:auto_generated|input_latch_l[0]"
+set_location_assignment LAB_X28_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:5:dq_io|ddio_bidir_c0l:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X28_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:5:dq_io|ddio_bidir_c0l:auto_generated|output_cell_L[0]"
+set_location_assignment LAB_X28_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:5:dq_io|ddio_bidir_c0l:auto_generated|oe_cell"
+set_location_assignment LAB_X29_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|resynched_data[5]"
+set_location_assignment LAB_X29_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|resynched_data[13]"
+set_location_assignment PIN_173 -to ddr_dq[14]
+set_location_assignment LAB_X25_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:6:dq_io|ddio_bidir_c0l:auto_generated|input_cell_h[0]"
+set_location_assignment LAB_X25_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:6:dq_io|ddio_bidir_c0l:auto_generated|input_cell_l[0]"
+set_location_assignment LAB_X25_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:6:dq_io|ddio_bidir_c0l:auto_generated|input_latch_l[0]"
+set_location_assignment LAB_X25_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:6:dq_io|ddio_bidir_c0l:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X25_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:6:dq_io|ddio_bidir_c0l:auto_generated|output_cell_L[0]"
+set_location_assignment LAB_X25_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:6:dq_io|ddio_bidir_c0l:auto_generated|oe_cell"
+set_location_assignment LAB_X26_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|resynched_data[6]"
+set_location_assignment LAB_X26_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|resynched_data[14]"
+set_location_assignment PIN_175 -to ddr_dq[15]
+set_location_assignment LAB_X23_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:7:dq_io|ddio_bidir_c0l:auto_generated|input_cell_h[0]"
+set_location_assignment LAB_X23_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:7:dq_io|ddio_bidir_c0l:auto_generated|input_cell_l[0]"
+set_location_assignment LAB_X23_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:7:dq_io|ddio_bidir_c0l:auto_generated|input_latch_l[0]"
+set_location_assignment LAB_X23_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:7:dq_io|ddio_bidir_c0l:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X23_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:7:dq_io|ddio_bidir_c0l:auto_generated|output_cell_L[0]"
+set_location_assignment LAB_X23_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:\\g_dq_io:7:dq_io|ddio_bidir_c0l:auto_generated|oe_cell"
+set_location_assignment LAB_X24_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|resynched_data[7]"
+set_location_assignment LAB_X24_Y18 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|resynched_data[15]"
+set_location_assignment PIN_169 -to ddr_dqs[1]
+set_location_assignment LAB_X28_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:dqs_io|ddio_bidir_50l:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X28_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:dqs_io|ddio_bidir_50l:auto_generated|output_cell_L[0]"
+set_location_assignment LAB_X28_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:dqs_io|ddio_bidir_50l:auto_generated|oe_cell"
+set_location_assignment LAB_X29_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_bidir:dqs_io|ddio_bidir_50l:auto_generated|ext_oe_cell"
+set_location_assignment PIN_179 -to ddr_dm[1]
+set_location_assignment LAB_X18_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_out:dm_pin|ddio_out_sbf:auto_generated|output_cell_H[0]"
+set_location_assignment LAB_X18_Y17 -to "soc_dbg:comb_4|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_out:dm_pin|ddio_out_sbf:auto_generated|output_cell_L[0]"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_location_assignment PIN_24 -to button[0]
+set_location_assignment PIN_23 -to button[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to button[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to button[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to clk
+set_location_assignment PIN_129 -to clk
+set_location_assignment PIN_6 -to ddr_a[12]
+set_location_assignment PIN_5 -to ddr_a[11]
+set_location_assignment PIN_11 -to ddr_a[10]
+set_location_assignment PIN_4 -to ddr_a[9]
+set_location_assignment PIN_3 -to ddr_a[8]
+set_location_assignment PIN_206 -to ddr_a[6]
+set_location_assignment PIN_208 -to ddr_a[7]
+set_location_assignment PIN_205 -to ddr_a[5]
+set_location_assignment PIN_199 -to ddr_a[4]
+set_location_assignment PIN_15 -to ddr_a[3]
+set_location_assignment PIN_14 -to ddr_a[2]
+set_location_assignment PIN_13 -to ddr_a[1]
+set_location_assignment PIN_12 -to ddr_a[0]
+set_location_assignment PIN_10 -to ddr_ba[1]
+set_location_assignment PIN_8 -to ddr_ba[0]
+set_location_assignment PIN_180 -to ddr_cas_n
+set_location_assignment PIN_197 -to ddr_ck_n
+set_location_assignment PIN_198 -to ddr_ck_p
+set_location_assignment PIN_187 -to ddr_cke
+set_location_assignment PIN_182 -to ddr_cs_n
+set_location_assignment PIN_181 -to ddr_ras_n
+set_location_assignment PIN_176 -to ddr_we_n
+set_location_assignment PIN_48 -to ef_a[26]
+set_location_assignment PIN_47 -to ef_a[25]
+set_location_assignment PIN_60 -to ef_a[24]
+set_location_assignment PIN_61 -to ef_a[23]
+set_location_assignment PIN_63 -to ef_a[22]
+set_location_assignment PIN_64 -to ef_a[21]
+set_location_assignment PIN_67 -to ef_a[20]
+set_location_assignment PIN_68 -to ef_a[19]
+set_location_assignment PIN_69 -to ef_a[18]
+set_location_assignment PIN_70 -to ef_a[17]
+set_location_assignment PIN_72 -to ef_a[16]
+set_location_assignment PIN_90 -to ef_a[15]
+set_location_assignment PIN_92 -to ef_a[14]
+set_location_assignment PIN_94 -to ef_a[13]
+set_location_assignment PIN_95 -to ef_a[12]
+set_location_assignment PIN_96 -to ef_a[11]
+set_location_assignment PIN_97 -to ef_a[10]
+set_location_assignment PIN_99 -to ef_a[9]
+set_location_assignment PIN_101 -to ef_a[8]
+set_location_assignment PIN_102 -to ef_a[7]
+set_location_assignment PIN_103 -to ef_a[6]
+set_location_assignment PIN_104 -to ef_a[5]
+set_location_assignment PIN_105 -to ef_a[4]
+set_location_assignment PIN_106 -to ef_a[3]
+set_location_assignment PIN_107 -to ef_a[2]
+set_location_assignment PIN_108 -to ef_a[1]
+set_location_assignment PIN_149 -to ef_d[31]
+set_location_assignment PIN_147 -to ef_d[30]
+set_location_assignment PIN_146 -to ef_d[29]
+set_location_assignment PIN_145 -to ef_d[28]
+set_location_assignment PIN_144 -to ef_d[27]
+set_location_assignment PIN_143 -to ef_d[26]
+set_location_assignment PIN_142 -to ef_d[25]
+set_location_assignment PIN_141 -to ef_d[24]
+set_location_assignment PIN_139 -to ef_d[23]
+set_location_assignment PIN_138 -to ef_d[22]
+set_location_assignment PIN_137 -to ef_d[21]
+set_location_assignment PIN_135 -to ef_d[20]
+set_location_assignment PIN_134 -to ef_d[19]
+set_location_assignment PIN_133 -to ef_d[18]
+set_location_assignment PIN_128 -to ef_d[17]
+set_location_assignment PIN_127 -to ef_d[16]
+set_location_assignment PIN_118 -to ef_d[15]
+set_location_assignment PIN_117 -to ef_d[14]
+set_location_assignment PIN_116 -to ef_d[13]
+set_location_assignment PIN_115 -to ef_d[12]
+set_location_assignment PIN_114 -to ef_d[11]
+
+set_location_assignment PIN_113 -to ef_d[10]
+set_location_assignment PIN_112 -to ef_d[9]
+set_location_assignment PIN_110 -to ef_d[8]
+set_location_assignment PIN_84 -to ef_d[7]
+set_location_assignment PIN_82 -to ef_d[6]
+set_location_assignment PIN_81 -to ef_d[5]
+set_location_assignment PIN_80 -to ef_d[4]
+set_location_assignment PIN_77 -to ef_d[3]
+set_location_assignment PIN_76 -to ef_d[2]
+set_location_assignment PIN_75 -to ef_d[1]
+set_location_assignment PIN_74 -to ef_d[0]
+set_global_assignment -name MISC_FILE /home/izi/Workplace/ecs8/fpga/nios2/ecs8_nios2_dbg.dpf
+
+set_location_assignment PIN_86 -to enet_be_n[3]
+set_location_assignment PIN_87 -to enet_be_n[2]
+set_location_assignment PIN_88 -to enet_be_n[1]
+set_location_assignment PIN_89 -to enet_be_n[0]
+set_location_assignment PIN_130 -to enet_intr
+set_location_assignment PIN_151 -to enet_rd_n
+set_location_assignment PIN_152 -to enet_res
+set_location_assignment PIN_150 -to enet_wr_n
+set_location_assignment PIN_1 -to epcs_asd
+set_location_assignment PIN_2 -to epcs_cs_n
+set_location_assignment PIN_59 -to flash_ce_n
+set_location_assignment PIN_58 -to flash_oe_n
+set_location_assignment PIN_56 -to flash_reset_n
+set_location_assignment PIN_131 -to flash_ry_by_n
+set_location_assignment PIN_57 -to flash_we_n
+set_location_assignment PIN_160 -to flash_wp_n
+set_location_assignment PIN_39 -to i2c_scl
+set_location_assignment PIN_40 -to i2c_sda
+set_location_assignment PIN_44 -to led_n[1]
+set_location_assignment PIN_43 -to led_n[0]
+set_location_assignment PIN_37 -to onewire
+set_location_assignment PIN_132 -to rtc_irq_n
+set_location_assignment PIN_27 -to switch[1]
+set_location_assignment PIN_28 -to switch[0]
+set_location_assignment PIN_34 -to uart_host_cts
+set_location_assignment PIN_31 -to uart_host_rts
+set_location_assignment PIN_33 -to uart_host_rx
+set_location_assignment PIN_30 -to uart_host_tx
+set_location_assignment PIN_46 -to uart_user_rx
+set_location_assignment PIN_45 -to uart_user_tx
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
