@@ -2,8 +2,8 @@ module ecs8_nios2_dbg (
   // system clock (32.768MHz)
   input wire         clk,
   // EPCS SPI Flash interface
-  output wire        epcs_asd,
-  output wire        epcs_cs_n,
+//  output wire        epcs_asd,
+//  output wire        epcs_cs_n,
   // PIO
   input  wire  [1:0] button,
   input  wire  [1:0] switch,
@@ -30,7 +30,8 @@ module ecs8_nios2_dbg (
   output wire        flash_we_n,
   output wire        flash_oe_n,
   output wire        flash_reset_n,
-  output wire        flash_wp_n,
+//  output wire        flash_wp_n,
+  input  wire        flash_wp_n,
   input  wire        flash_ry_by_n,
   // Ethernet
   output wire        enet_wr_n,
@@ -61,9 +62,9 @@ wire clk_ddr_write;
 wire clk_ddr_resynch;
 
 // 1-wire signals
-wire onewire_i;
-wire onewire_o;
 wire onewire_e;
+wire onewire_i;
+wire onewire_p;
 
 // reset source
 assign rst_n = button [1];
@@ -103,7 +104,7 @@ soc_dbg soc (
   .owr_i_to_the_onewire               (onewire_i),
   .owr_p_from_the_onewire             (onewire_p),
   // PIO
-  .out_port_from_the_pio_o            (led),
+  .out_port_from_the_pio_o            (led_n),
   .in_port_to_the_pio_i               ({switch, button}),
   // Ethernet
   .iow_n_to_the_lan91c111             (enet_wr_n),
@@ -116,12 +117,16 @@ soc_dbg soc (
   .read_n_to_the_cfi_flash            (flash_oe_n),
   .write_n_to_the_cfi_flash           (flash_we_n),
   // Flash and Ethernet shared IO
-  .tri_state_address                  (ef_a),
+  .tri_state_address                  (ef_a[23:1]),
   .tri_state_data                     (ef_d)
 );
 
 // 1-wire IO
 assign onewire   = (onewire_p | onewire_e) ? onewire_p : 1'bz;
 assign onewire_i =  onewire;
+
+// unused flash signals
+//assign flash_wp_n    = 1'b0;
+assign flash_reset_n = 1'b1;
 
 endmodule

@@ -74,7 +74,7 @@
       }
       datum megawizard_uipreferences
       {
-         value = "{}";
+         value = "{output_language=VERILOG, output_directory=/home/izi/Workplace/ecs8/fpga/nios2}";
          type = "String";
       }
       datum sopceditor_expanded
@@ -195,11 +195,11 @@
          type = "long";
       }
    }
-   element lan91c111.s1
+   element pio_i.s1
    {
       datum baseAddress
       {
-         value = "83951616";
+         value = "84025440";
          type = "long";
       }
    }
@@ -211,27 +211,11 @@
          type = "long";
       }
    }
-   element onewire.s1
+   element lan91c111.s1
    {
       datum baseAddress
       {
-         value = "84025456";
-         type = "long";
-      }
-   }
-   element pio_o.s1
-   {
-      datum baseAddress
-      {
-         value = "84025408";
-         type = "long";
-      }
-   }
-   element ddr_sdram.s1
-   {
-      datum baseAddress
-      {
-         value = "33554432";
+         value = "83951616";
          type = "long";
       }
    }
@@ -243,6 +227,14 @@
          type = "long";
       }
    }
+   element pio_o.s1
+   {
+      datum baseAddress
+      {
+         value = "84025408";
+         type = "long";
+      }
+   }
    element uart.s1
    {
       datum baseAddress
@@ -251,11 +243,19 @@
          type = "long";
       }
    }
-   element pio_i.s1
+   element onewire.s1
    {
       datum baseAddress
       {
-         value = "84025440";
+         value = "84025456";
+         type = "long";
+      }
+   }
+   element ddr_sdram.s1
+   {
+      datum baseAddress
+      {
+         value = "33554432";
          type = "long";
       }
    }
@@ -318,8 +318,8 @@
  <parameter name="maxAdditionalLatency" value="0" />
  <parameter name="projectName" value="ecs8_nios2_dbg.qpf" />
  <parameter name="sopcBorderPoints" value="true" />
- <parameter name="systemHash" value="-3654529002" />
- <parameter name="timeStamp" value="1303602511614" />
+ <parameter name="systemHash" value="-6526620789" />
+ <parameter name="timeStamp" value="1303672360275" />
  <module kind="clock_source" version="10.1" enabled="1" name="clk_pin">
   <parameter name="clockFrequency" value="32768000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -761,7 +761,7 @@
                      }
                      PRIVATE ADVANCED
                      {
-                        value = "1";
+                        value = "0";
                         type = "BOOLEAN";
                         enable = "1";
                      }
@@ -851,9 +851,9 @@
                      }
                      PRIVATE obj_hierarchy_path
                      {
-                        value = "Automatically extracted by Quartus synthesis";
+                        value = "ddr_sdram:ddr_sdram_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|";
                         type = "STRING";
-                        enable = "0";
+                        enable = "1";
                      }
                      PRIVATE clock_pin_positive
                      {
@@ -893,13 +893,13 @@
                      }
                      PRIVATE update_top_level
                      {
-                        value = "0";
+                        value = "1";
                         type = "BOOLEAN";
                         enable = "1";
                      }
                      PRIVATE manual_hierarchy_control
                      {
-                        value = "0";
+                        value = "1";
                         type = "BOOLEAN";
                         enable = "1";
                      }
@@ -1710,10 +1710,10 @@
    version="10.1"
    enabled="1"
    name="cfi_flash">
-  <parameter name="addressWidth" value="23" />
+  <parameter name="addressWidth" value="22" />
   <parameter name="clockRate" value="98304001" />
   <parameter name="corePreset" value="CUSTOM" />
-  <parameter name="dataWidth" value="8" />
+  <parameter name="dataWidth" value="16" />
   <parameter name="holdTime" value="40" />
   <parameter name="setupTime" value="40" />
   <parameter name="sharedPorts" value="s1/address,s1/data" />
