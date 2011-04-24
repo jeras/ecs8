@@ -203,6 +203,38 @@
          type = "long";
       }
    }
+   element cfi_flash.s1
+   {
+      datum baseAddress
+      {
+         value = "75497472";
+         type = "long";
+      }
+   }
+   element onewire.s1
+   {
+      datum baseAddress
+      {
+         value = "84025456";
+         type = "long";
+      }
+   }
+   element pio_o.s1
+   {
+      datum baseAddress
+      {
+         value = "84025408";
+         type = "long";
+      }
+   }
+   element ddr_sdram.s1
+   {
+      datum baseAddress
+      {
+         value = "33554432";
+         type = "long";
+      }
+   }
    element timer.s1
    {
       datum baseAddress
@@ -224,38 +256,6 @@
       datum baseAddress
       {
          value = "84025440";
-         type = "long";
-      }
-   }
-   element onewire.s1
-   {
-      datum baseAddress
-      {
-         value = "84025456";
-         type = "long";
-      }
-   }
-   element cfi_flash.s1
-   {
-      datum baseAddress
-      {
-         value = "75497472";
-         type = "long";
-      }
-   }
-   element pio_o.s1
-   {
-      datum baseAddress
-      {
-         value = "84025408";
-         type = "long";
-      }
-   }
-   element ddr_sdram.s1
-   {
-      datum baseAddress
-      {
-         value = "33554432";
          type = "long";
       }
    }
@@ -318,8 +318,8 @@
  <parameter name="maxAdditionalLatency" value="0" />
  <parameter name="projectName" value="ecs8_nios2_dbg.qpf" />
  <parameter name="sopcBorderPoints" value="true" />
- <parameter name="systemHash" value="-5320583135" />
- <parameter name="timeStamp" value="1303591820455" />
+ <parameter name="systemHash" value="-3654529002" />
+ <parameter name="timeStamp" value="1303602511614" />
  <module kind="clock_source" version="10.1" enabled="1" name="clk_pin">
   <parameter name="clockFrequency" value="32768000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -439,6 +439,20 @@
    {
       PORT_WIRING 
       {
+         PORT resynch_clk
+         {
+            type = "export";
+            width = "1";
+            direction = "input";
+            Is_Enabled = "1";
+         }
+         PORT write_clk
+         {
+            type = "export";
+            width = "1";
+            direction = "input";
+            Is_Enabled = "1";
+         }
          PORT clk
          {
             type = "clk";
@@ -507,20 +521,6 @@
             type = "readdatavalid";
             width = "1";
             direction = "output";
-            Is_Enabled = "1";
-         }
-         PORT resynch_clk
-         {
-            type = "export";
-            width = "1";
-            direction = "input";
-            Is_Enabled = "1";
-         }
-         PORT write_clk
-         {
-            type = "export";
-            width = "1";
-            direction = "input";
             Is_Enabled = "1";
          }
          PORT clk_to_sdram
@@ -613,8 +613,8 @@
          Bus_Type = "avalon";
          Read_Wait_States = "peripheral_controlled";
          Write_Wait_States = "peripheral_controlled";
-         Hold_Time = "0cycles";
-         Setup_Time = "0cycles";
+         Hold_Time = "0";
+         Setup_Time = "0";
          Is_Printable_Device = "0";
          Address_Alignment = "dynamic";
          Well_Behaved_Waitrequest = "0";
@@ -640,6 +640,11 @@
          Is_Enabled = "1";
          Base_Address = "0x02000000";
          Address_Group = "0";
+         Instantiate_In_System_Module = "1";
+         Is_Bus_Master = "0";
+         Has_IRQ = "0";
+         Has_Base_Address = "1";
+         Uses_Tri_State_Data_Bus = "0";
       }
    }
    class = "ddr_sdram_component";
@@ -678,7 +683,7 @@
                      }
                      PRIVATE projectname
                      {
-                        value = "ecs8_nios2";
+                        value = "ecs8_nios2_dbg.qpf";
                         type = "STRING";
                         enable = "1";
                      }
@@ -852,13 +857,13 @@
                      }
                      PRIVATE clock_pin_positive
                      {
-                        value = "clk_to_sdram";
+                        value = "ddr_ck_p";
                         type = "STRING";
                         enable = "1";
                      }
                      PRIVATE clock_pin_negative
                      {
-                        value = "clk_to_sdram_n";
+                        value = "ddr_ck_n";
                         type = "STRING";
                         enable = "1";
                      }
