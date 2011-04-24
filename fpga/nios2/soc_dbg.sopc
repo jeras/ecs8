@@ -74,7 +74,7 @@
       }
       datum megawizard_uipreferences
       {
-         value = "{output_language=VERILOG, output_directory=/home/izi/Workplace/ecs8/fpga/nios2}";
+         value = "{}";
          type = "String";
       }
       datum sopceditor_expanded
@@ -195,30 +195,6 @@
          type = "long";
       }
    }
-   element pio_i.s1
-   {
-      datum baseAddress
-      {
-         value = "84025440";
-         type = "long";
-      }
-   }
-   element cfi_flash.s1
-   {
-      datum baseAddress
-      {
-         value = "75497472";
-         type = "long";
-      }
-   }
-   element lan91c111.s1
-   {
-      datum baseAddress
-      {
-         value = "83951616";
-         type = "long";
-      }
-   }
    element timer.s1
    {
       datum baseAddress
@@ -227,11 +203,19 @@
          type = "long";
       }
    }
-   element pio_o.s1
+   element ddr_sdram.s1
    {
       datum baseAddress
       {
-         value = "84025408";
+         value = "33554432";
+         type = "long";
+      }
+   }
+   element pio_i.s1
+   {
+      datum baseAddress
+      {
+         value = "84025440";
          type = "long";
       }
    }
@@ -251,11 +235,27 @@
          type = "long";
       }
    }
-   element ddr_sdram.s1
+   element lan91c111.s1
    {
       datum baseAddress
       {
-         value = "33554432";
+         value = "83951616";
+         type = "long";
+      }
+   }
+   element cfi_flash.s1
+   {
+      datum baseAddress
+      {
+         value = "75497472";
+         type = "long";
+      }
+   }
+   element pio_o.s1
+   {
+      datum baseAddress
+      {
+         value = "84025408";
          type = "long";
       }
    }
@@ -318,8 +318,8 @@
  <parameter name="maxAdditionalLatency" value="0" />
  <parameter name="projectName" value="ecs8_nios2_dbg.qpf" />
  <parameter name="sopcBorderPoints" value="true" />
- <parameter name="systemHash" value="-6526620789" />
- <parameter name="timeStamp" value="1303672360275" />
+ <parameter name="systemHash" value="-5226990612" />
+ <parameter name="timeStamp" value="1303675001284" />
  <module kind="clock_source" version="10.1" enabled="1" name="clk_pin">
   <parameter name="clockFrequency" value="32768000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -761,7 +761,7 @@
                      }
                      PRIVATE ADVANCED
                      {
-                        value = "0";
+                        value = "1";
                         type = "BOOLEAN";
                         enable = "1";
                      }
@@ -851,9 +851,9 @@
                      }
                      PRIVATE obj_hierarchy_path
                      {
-                        value = "ddr_sdram:ddr_sdram_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|";
+                        value = "Automatically extracted by Quartus synthesis";
                         type = "STRING";
-                        enable = "1";
+                        enable = "0";
                      }
                      PRIVATE clock_pin_positive
                      {
@@ -899,7 +899,7 @@
                      }
                      PRIVATE manual_hierarchy_control
                      {
-                        value = "1";
+                        value = "0";
                         type = "BOOLEAN";
                         enable = "1";
                      }
@@ -971,7 +971,7 @@
                      }
                      PRIVATE drive_strength
                      {
-                        value = "normal";
+                        value = "reduced";
                         type = "STRING";
                         enable = "1";
                      }
