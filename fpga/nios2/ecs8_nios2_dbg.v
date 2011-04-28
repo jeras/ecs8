@@ -82,7 +82,7 @@ soc_dbg soc (
   .phasedone_from_the_altpll_soc      (),
   // extra DDR clocks
   .write_clk_to_the_ddr_sdram         (clk_ddr_write),
-  .resynch_clk_to_the_ddr_sdram       (clk_ddr_resynch),
+//  .resynch_clk_to_the_ddr_sdram       (clk_ddr_resynch),
   // DDR SDRAM
   .clk_to_sdram_from_the_ddr_sdram    (ddr_ck_p),
   .clk_to_sdram_n_from_the_ddr_sdram  (ddr_ck_n),
