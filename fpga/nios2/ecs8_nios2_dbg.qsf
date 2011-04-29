@@ -62,7 +62,7 @@ set_global_assignment -name RESERVE_ASDO_AFTER_CONFIGURATION "USE AS REGULAR IO"
 ################################################################################
 
 # clock input from an oscilator
-set_location_assignment PIN_129 -to clk_in
+set_location_assignment PIN_129 -to clk
 
 # Ethernet & Flash memory interface
 # Flash specific signals
@@ -217,7 +217,7 @@ set_location_assignment PIN_27 -to switch[1]
 # I2C & RTC interface
 set_location_assignment PIN_39 -to i2c_scl
 set_location_assignment PIN_40 -to i2c_sda
-set_location_assignment PIN_132 -to rtc_irq
+set_location_assignment PIN_132 -to rtc_irq_n
 
 ################################################################################
 # IO bank power asignments
@@ -421,8 +421,8 @@ set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to uart_user_txd
 
 set_global_assignment -name POST_FLOW_SCRIPT_FILE "quartus_sh:auto_verify_ddr_timing.tcl"
 set_global_assignment -name QIP_FILE ddr_sdram.qip
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
-set_instance_assignment -name DQS_FREQUENCY "65.536003 MHz" -to ddr_dqs
+
+set_instance_assignment -name DQS_FREQUENCY "81.919998 MHz" -to ddr_dqs
 set_instance_assignment -name OUTPUT_ENABLE_GROUP 1 -to ddr_dm
 set_instance_assignment -name OUTPUT_ENABLE_GROUP 1 -to ddr_dqs
 set_instance_assignment -name OUTPUT_ENABLE_GROUP 1 -to ddr_dq
@@ -707,3 +707,5 @@ set_location_assignment LAB_X29_Y17 -to "soc_dbg:soc|ddr_sdram:the_ddr_sdram|ddr
 set_location_assignment PIN_179 -to ddr_dm[1]
 set_location_assignment LAB_X18_Y17 -to "soc_dbg:soc|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_out:dm_pin|ddio_out_sbf:auto_generated|output_cell_H[0]"
 set_location_assignment LAB_X18_Y17 -to "soc_dbg:soc|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_out:dm_pin|ddio_out_sbf:auto_generated|output_cell_L[0]"
+
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
