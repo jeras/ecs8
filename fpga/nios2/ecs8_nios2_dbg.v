@@ -15,12 +15,12 @@ module ecs8_nios2_dbg (
   inout  wire        i2c_scl,
   inout  wire        i2c_sda,
   // UART user
-  input  wire        uart_user_rx,
-  output wire        uart_user_tx,
+  input  wire        uart_user_rxd,
+  output wire        uart_user_txd,
   // UART host (can be used as a GPIO)
-  inout  wire        uart_host_rx,
+  inout  wire        uart_host_rxd,
   inout  wire        uart_host_rts,
-  inout  wire        uart_host_tx,
+  inout  wire        uart_host_txd,
   inout  wire        uart_host_cts,
   // Flash and Ethernet shared IO
   output wire [26:1] ef_a,
@@ -97,8 +97,8 @@ soc_dbg soc (
   .ddr_dqs_to_and_from_the_ddr_sdram  (ddr_dqs),
   .ddr_dq_to_and_from_the_ddr_sdram   (ddr_dq),
   // UART
-  .rxd_to_the_uart                    (uart_user_rx),
-  .txd_from_the_uart                  (uart_user_tx),
+  .rxd_to_the_uart                    (uart_user_rxd),
+  .txd_from_the_uart                  (uart_user_txd),
   // 1-wire
   .owr_e_from_the_onewire             (onewire_e),
   .owr_i_to_the_onewire               (onewire_i),
@@ -125,8 +125,10 @@ soc_dbg soc (
 assign onewire   = (onewire_p | onewire_e) ? onewire_p : 1'bz;
 assign onewire_i =  onewire;
 
+// Flash IO
 // unused flash signals
 //assign flash_wp_n    = 1'b0;
 assign flash_reset_n = 1'b1;
+assign ef_a[26:24] = 3'bzzz;
 
 endmodule

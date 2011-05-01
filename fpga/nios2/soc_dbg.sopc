@@ -48,7 +48,7 @@
       }
       datum megawizard_uipreferences
       {
-         value = "{}";
+         value = "{output_language=VERILOG, output_directory=/home/izi/Workplace/ecs8/fpga/nios2}";
          type = "String";
       }
       datum sopceditor_expanded
@@ -79,7 +79,7 @@
       }
       datum sopceditor_expanded
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
    }
@@ -118,7 +118,15 @@
    {
       datum baseAddress
       {
-         value = "16783360";
+         value = "33554432";
+         type = "long";
+      }
+   }
+   element cpu.jtag_debug_module
+   {
+      datum baseAddress
+      {
+         value = "16777216";
          type = "long";
       }
    }
@@ -218,6 +226,38 @@
          type = "long";
       }
    }
+   element pipeline.s1
+   {
+      datum baseAddress
+      {
+         value = "0";
+         type = "long";
+      }
+   }
+   element lan91c111.s1
+   {
+      datum baseAddress
+      {
+         value = "8388608";
+         type = "long";
+      }
+   }
+   element cfi_flash.s1
+   {
+      datum baseAddress
+      {
+         value = "0";
+         type = "long";
+      }
+   }
+   element timer.s1
+   {
+      datum baseAddress
+      {
+         value = "8454144";
+         type = "long";
+      }
+   }
    element ddr_sdram.s1
    {
       datum _lockedAddress
@@ -239,35 +279,11 @@
          type = "long";
       }
    }
-   element cfi_flash.s1
+   element pio_o.s1
    {
       datum baseAddress
       {
-         value = "0";
-         type = "long";
-      }
-   }
-   element lan91c111.s1
-   {
-      datum baseAddress
-      {
-         value = "8388608";
-         type = "long";
-      }
-   }
-   element uart.s1
-   {
-      datum baseAddress
-      {
-         value = "8454176";
-         type = "long";
-      }
-   }
-   element timer.s1
-   {
-      datum baseAddress
-      {
-         value = "8454144";
+         value = "8454208";
          type = "long";
       }
    }
@@ -279,11 +295,11 @@
          type = "long";
       }
    }
-   element pio_o.s1
+   element uart.s1
    {
       datum baseAddress
       {
-         value = "8454208";
+         value = "8454176";
          type = "long";
       }
    }
@@ -292,14 +308,6 @@
       datum baseAddress
       {
          value = "8454256";
-         type = "long";
-      }
-   }
-   element pipeline.s1
-   {
-      datum baseAddress
-      {
-         value = "0";
          type = "long";
       }
    }
@@ -370,8 +378,8 @@
  <parameter name="maxAdditionalLatency" value="0" />
  <parameter name="projectName" value="ecs8_nios2_dbg.qpf" />
  <parameter name="sopcBorderPoints" value="true" />
- <parameter name="systemHash" value="-3045519021" />
- <parameter name="timeStamp" value="1304102761542" />
+ <parameter name="systemHash" value="-9807917670" />
+ <parameter name="timeStamp" value="1304254480152" />
  <module kind="clock_source" version="10.1" enabled="1" name="clk_pin">
   <parameter name="clockFrequency" value="32768000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -441,13 +449,13 @@
   <parameter name="mmu_tlbPtrSz" value="_7" />
   <parameter name="mmu_tlbNumWays" value="_8" />
   <parameter name="mmu_processIDNumBits" value="_8" />
-  <parameter name="mmu_enabled" value="true" />
+  <parameter name="mmu_enabled" value="false" />
   <parameter name="mmu_autoAssignTlbPtrSz" value="true" />
   <parameter name="mmu_TLBMissExcSlave" value="onchip_ram.s1" />
   <parameter name="mmu_TLBMissExcOffset" value="0" />
   <parameter name="manuallyAssignCpuID" value="false" />
   <parameter name="internalIrqMaskSystemInfo" value="31" />
-  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='epcs.epcs_control_port' start='0x1001800' end='0x1002000' /><slave name='ddr_sdram.s1' start='0x10000000' end='0x12000000' /></address-map>]]></parameter>
+  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='cpu.jtag_debug_module' start='0x1000000' end='0x1000800' /><slave name='epcs.epcs_control_port' start='0x2000000' end='0x2000800' /><slave name='ddr_sdram.s1' start='0x10000000' end='0x12000000' /></address-map>]]></parameter>
   <parameter name="instAddrWidth" value="29" />
   <parameter name="impl" value="Fast" />
   <parameter name="icache_size" value="_4096" />
@@ -459,7 +467,7 @@
   <parameter name="deviceFeaturesSystemInfo">M512_MEMORY 0 M4K_MEMORY 1 M9K_MEMORY 0 M20K_MEMORY 0 M144K_MEMORY 0 MRAM_MEMORY 0 MLAB_MEMORY 0 ESB 0 EPCS 1 DSP 0 EMUL 1 HARDCOPY 0 LVDS_IO 0 ADDRESS_STALL 1 TRANSCEIVER_3G_BLOCK 0 TRANSCEIVER_6G_BLOCK 0 DSP_SHIFTER_BLOCK 0</parameter>
   <parameter name="deviceFamilyName" value="Cyclone II" />
   <parameter name="debug_triggerArming" value="true" />
-  <parameter name="debug_level" value="NoDebug" />
+  <parameter name="debug_level" value="Level1" />
   <parameter name="debug_jtagInstanceID" value="0" />
   <parameter name="debug_embeddedPLL" value="true" />
   <parameter name="debug_debugReqSignals" value="false" />
@@ -471,13 +479,13 @@
   <parameter name="dcache_numTCDM" value="_1" />
   <parameter name="dcache_lineSize" value="_32" />
   <parameter name="dcache_bursts" value="true" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='cfi_flash.s1' start='0x0' end='0x800000' /><slave name='lan91c111.s1' start='0x800000' end='0x810000' /><slave name='timer.s1' start='0x810000' end='0x810020' /><slave name='uart.s1' start='0x810020' end='0x810040' /><slave name='pio_o.s1' start='0x810040' end='0x810050' /><slave name='pio_i.s1' start='0x810050' end='0x810060' /><slave name='altpll_soc.pll_slave' start='0x810060' end='0x810070' /><slave name='onewire.s1' start='0x810070' end='0x810078' /><slave name='epcs.epcs_control_port' start='0x1001800' end='0x1002000' /><slave name='ddr_sdram.s1' start='0x10000000' end='0x12000000' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='cfi_flash.s1' start='0x0' end='0x800000' /><slave name='lan91c111.s1' start='0x800000' end='0x810000' /><slave name='timer.s1' start='0x810000' end='0x810020' /><slave name='uart.s1' start='0x810020' end='0x810040' /><slave name='pio_o.s1' start='0x810040' end='0x810050' /><slave name='pio_i.s1' start='0x810050' end='0x810060' /><slave name='altpll_soc.pll_slave' start='0x810060' end='0x810070' /><slave name='onewire.s1' start='0x810070' end='0x810078' /><slave name='cpu.jtag_debug_module' start='0x1000000' end='0x1000800' /><slave name='epcs.epcs_control_port' start='0x2000000' end='0x2000800' /><slave name='ddr_sdram.s1' start='0x10000000' end='0x12000000' /></address-map>]]></parameter>
   <parameter name="dataAddrWidth" value="29" />
   <parameter name="customInstSlavesSystemInfo" value="&lt;info/&gt;" />
   <parameter name="cpuReset" value="false" />
   <parameter name="cpuID" value="0" />
   <parameter name="clockFrequency" value="81919998" />
-  <parameter name="breakSlave" value="ddr_sdram.s1" />
+  <parameter name="breakSlave">cpu.jtag_debug_module</parameter>
   <parameter name="breakOffset" value="32" />
  </module>
  <module
@@ -2072,7 +2080,7 @@
    start="cpu.instruction_master"
    end="epcs.epcs_control_port">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x01001800" />
+  <parameter name="baseAddress" value="0x02000000" />
  </connection>
  <connection kind="interrupt" version="10.1" start="cpu.d_irq" end="epcs.irq">
   <parameter name="irqNumber" value="1" />
@@ -2180,7 +2188,7 @@
    start="cpu.data_master"
    end="epcs.epcs_control_port">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x01001800" />
+  <parameter name="baseAddress" value="0x02000000" />
  </connection>
  <connection
    kind="avalon"
@@ -2208,4 +2216,20 @@
    version="10.1"
    start="altpll_soc.c0"
    end="onchip_ram.clk2" />
+ <connection
+   kind="avalon"
+   version="10.1"
+   start="cpu.data_master"
+   end="cpu.jtag_debug_module">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x01000000" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="10.1"
+   start="cpu.instruction_master"
+   end="cpu.jtag_debug_module">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x01000000" />
+ </connection>
 </system>
