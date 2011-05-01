@@ -27,4 +27,4 @@ DATE = "21:03:12  April 20, 2011"
 
 # Revisions
 
-PROJECT_REVISION = "ecs8_nios2_dbg"
+PROJECT_REVISION = "ecs8_nios2_mmu"

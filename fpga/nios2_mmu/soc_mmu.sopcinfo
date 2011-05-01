@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EnsembleReport name="soc_dbg" kind="system" version="10.1" fabric="SOPC">
+<EnsembleReport name="soc_mmu" kind="system" version="10.1" fabric="SOPC">
  <!-- Format version 10.1sp1 197 (Future versions may contain additional information.) -->
  <!-- 2011.05.01.14:56:19 -->
  <!-- A collection of modules and connections -->
@@ -69,7 +69,7 @@
  </parameter>
  <parameter name="projectName">
   <type>java.lang.String</type>
-  <value>ecs8_nios2_dbg.qpf</value>
+  <value>ecs8_nios2_mmu.qpf</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -3745,7 +3745,7 @@ the requested settings for a module instance. -->
                      }
                      PRIVATE projectname
                      {
-                        value = "ecs8_nios2_dbg.qpf";
+                        value = "ecs8_nios2_mmu.qpf";
                         type = "STRING";
                         enable = "1";
                      }

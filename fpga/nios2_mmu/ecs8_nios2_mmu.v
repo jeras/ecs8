@@ -1,4 +1,4 @@
-module ecs8_nios2_dbg (
+module ecs8_nios2_mmu (
   // system clock (32.768MHz)
   input wire         clk,
   // EPCS SPI Flash interface
@@ -70,7 +70,7 @@ wire onewire_p;
 assign rst_n = button [1];
 
 // SOC instance
-soc_dbg soc (
+soc_mmu soc (
   // system signals (clock, reset)
   .clk_pin                            (clk),
   .clk_int                            (),

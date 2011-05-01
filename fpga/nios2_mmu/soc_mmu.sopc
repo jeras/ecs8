@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<system name="soc_dbg">
+<system name="soc_mmu">
  <parameter name="bonusData"><![CDATA[bonusData 
 {
    element altpll_soc
@@ -319,7 +319,7 @@
          type = "long";
       }
    }
-   element soc_dbg
+   element soc_mmu
    {
    }
    element timer
@@ -376,7 +376,7 @@
  <parameter name="globalResetBus" value="true" />
  <parameter name="hdlLanguage" value="VERILOG" />
  <parameter name="maxAdditionalLatency" value="0" />
- <parameter name="projectName" value="ecs8_nios2_dbg.qpf" />
+ <parameter name="projectName" value="ecs8_nios2_mmu.qpf" />
  <parameter name="sopcBorderPoints" value="true" />
  <parameter name="systemHash" value="-9807917670" />
  <parameter name="timeStamp" value="1304254480152" />
@@ -736,7 +736,7 @@
                      }
                      PRIVATE projectname
                      {
-                        value = "ecs8_nios2_dbg.qpf";
+                        value = "ecs8_nios2_mmu.qpf";
                         type = "STRING";
                         enable = "1";
                      }
