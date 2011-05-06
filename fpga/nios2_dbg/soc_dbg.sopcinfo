@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="soc_dbg" kind="system" version="10.1" fabric="SOPC">
  <!-- Format version 10.1sp1 197 (Future versions may contain additional information.) -->
- <!-- 2011.05.01.21:35:39 -->
+ <!-- 2011.05.06.21:00:01 -->
  <!-- A collection of modules and connections -->
  <parameter name="clockCrossingAdapter">
   <type>com.altera.sopcmodel.ensemble.Ensemble$EClockAdapter</type>
@@ -85,7 +85,7 @@
  </parameter>
  <parameter name="systemHash">
   <type>long</type>
-  <value>-6045122195</value>
+  <value>-15602795331</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -93,7 +93,7 @@
  </parameter>
  <parameter name="timeStamp">
   <type>long</type>
-  <value>1304278488412</value>
+  <value>1304708370035</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -420,7 +420,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.CPU_FREQ</name>
-   <value>81919998u</value>
+   <value>49152000u</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.ICACHE_LINE_SIZE</name>
@@ -1312,7 +1312,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="clockFrequency">
    <type>long</type>
-   <value>81919998</value>
+   <value>49152000</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -1396,7 +1396,7 @@ parameters are a RESULT of the module parameters. -->
    </parameter>
    <parameter name="clockRate">
     <type>java.lang.Long</type>
-    <value>81919998</value>
+    <value>49152000</value>
     <derived>true</derived>
     <enabled>true</enabled>
     <visible>false</visible>
@@ -3529,13 +3529,6 @@ the requested settings for a module instance. -->
    {
       PORT_WIRING 
       {
-         PORT write_clk
-         {
-            type = "export";
-            width = "1";
-            direction = "input";
-            Is_Enabled = "1";
-         }
          PORT clk
          {
             type = "clk";
@@ -3546,6 +3539,13 @@ the requested settings for a module instance. -->
          PORT reset_n
          {
             type = "reset_n";
+            width = "1";
+            direction = "input";
+            Is_Enabled = "1";
+         }
+         PORT write_clk
+         {
+            type = "export";
             width = "1";
             direction = "input";
             Is_Enabled = "1";
@@ -4024,7 +4024,7 @@ the requested settings for a module instance. -->
                      }
                      PRIVATE clock_speed
                      {
-                        value = "81.919998";
+                        value = "49.152";
                         type = "STRING";
                         enable = "0";
                      }
@@ -4102,13 +4102,13 @@ the requested settings for a module instance. -->
                      }
                      PRIVATE trefi
                      {
-                        value = "637";
+                        value = "382";
                         type = "INTEGER";
                         enable = "0";
                      }
                      PRIVATE tinit_time
                      {
-                        value = "16382";
+                        value = "9829";
                         type = "INTEGER";
                         enable = "0";
                      }
@@ -4216,7 +4216,7 @@ the requested settings for a module instance. -->
                      }
                      PRIVATE resynch_edge
                      {
-                        value = "rising";
+                        value = "falling";
                         type = "STRING";
                         enable = "0";
                      }
@@ -4228,7 +4228,7 @@ the requested settings for a module instance. -->
                      }
                      PRIVATE resync_phase
                      {
-                        value = "270";
+                        value = "180";
                         type = "INTEGER";
                         enable = "0";
                      }
@@ -4246,7 +4246,7 @@ the requested settings for a module instance. -->
                      }
                      PRIVATE postamble_phase
                      {
-                        value = "270";
+                        value = "180";
                         type = "INTEGER";
                         enable = "0";
                      }
@@ -4462,19 +4462,19 @@ the requested settings for a module instance. -->
                      }
                      PRIVATE postamble_edge
                      {
-                        value = "rising";
+                        value = "falling";
                         type = "STRING";
                         enable = "0";
                      }
                      PRIVATE inter_postamble
                      {
-                        value = "1";
+                        value = "0";
                         type = "BOOLEAN";
                         enable = "0";
                      }
                      PRIVATE postamble_clock
                      {
-                        value = "write_clk";
+                        value = "clk";
                         type = "STRING";
                         enable = "0";
                      }
@@ -4528,7 +4528,7 @@ the requested settings for a module instance. -->
                      }
                      PRIVATE resynch_clk
                      {
-                        value = "write_clk";
+                        value = "clk";
                         type = "STRING";
                         enable = "0";
                      }
@@ -5992,7 +5992,7 @@ the requested settings for a module instance. -->
   </assignment>
   <parameter name="actualHoldTime">
    <type>double</type>
-   <value>48.828126192092924</value>
+   <value>40.690104166666664</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -6000,7 +6000,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="actualSetupTime">
    <type>double</type>
-   <value>48.828126192092924</value>
+   <value>40.690104166666664</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -6008,7 +6008,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="actualWaitTime">
    <type>double</type>
-   <value>170.89844167232525</value>
+   <value>162.76041666666666</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -6024,7 +6024,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="clockRate">
    <type>long</type>
-   <value>81919998</value>
+   <value>49152000</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -6148,7 +6148,7 @@ parameters are a RESULT of the module parameters. -->
    </parameter>
    <parameter name="clockRate">
     <type>java.lang.Long</type>
-    <value>81919998</value>
+    <value>49152000</value>
     <derived>true</derived>
     <enabled>true</enabled>
     <visible>false</visible>
@@ -6959,15 +6959,15 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.CDR_N</name>
-   <value>408</value>
+   <value>244</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.CDR_O</name>
-   <value>80</value>
+   <value>48</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.F_DLY</name>
-   <value>65632</value>
+   <value>65739</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.OVD_E</name>
@@ -7035,7 +7035,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="F_CLK">
    <type>int</type>
-   <value>81919998</value>
+   <value>49152000</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -7043,7 +7043,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="CDR_N">
    <type>int</type>
-   <value>408</value>
+   <value>244</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -7051,7 +7051,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="CDR_O">
    <type>int</type>
-   <value>80</value>
+   <value>48</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -7119,7 +7119,7 @@ parameters are a RESULT of the module parameters. -->
    </parameter>
    <parameter name="clockRate">
     <type>java.lang.Long</type>
-    <value>81919998</value>
+    <value>49152000</value>
     <derived>true</derived>
     <enabled>true</enabled>
     <visible>false</visible>
@@ -8213,11 +8213,11 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.FREQ</name>
-   <value>81919998u</value>
+   <value>49152000u</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.LOAD_VALUE</name>
-   <value>81919ULL</value>
+   <value>49151ULL</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.COUNTER_SIZE</name>
@@ -8289,7 +8289,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="systemFrequency">
    <type>long</type>
-   <value>81919998</value>
+   <value>49152000</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -8373,7 +8373,7 @@ parameters are a RESULT of the module parameters. -->
    </parameter>
    <parameter name="clockRate">
     <type>java.lang.Long</type>
-    <value>81919998</value>
+    <value>49152000</value>
     <derived>true</derived>
     <enabled>true</enabled>
     <visible>false</visible>
@@ -8885,7 +8885,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.FREQ</name>
-   <value>81919998u</value>
+   <value>49152000u</value>
   </assignment>
   <parameter name="bitClearingEdgeCapReg">
    <type>boolean</type>
@@ -8913,7 +8913,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="clockRate">
    <type>long</type>
-   <value>81919998</value>
+   <value>49152000</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -9045,7 +9045,7 @@ parameters are a RESULT of the module parameters. -->
    </parameter>
    <parameter name="clockRate">
     <type>java.lang.Long</type>
-    <value>81919998</value>
+    <value>49152000</value>
     <derived>true</derived>
     <enabled>true</enabled>
     <visible>false</visible>
@@ -9745,7 +9745,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="CLK0_MULTIPLY_BY">
    <type>java.lang.String</type>
-   <value>5</value>
+   <value>3</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -9753,7 +9753,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="CLK1_MULTIPLY_BY">
    <type>java.lang.String</type>
-   <value>5</value>
+   <value>3</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -9761,7 +9761,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="CLK2_MULTIPLY_BY">
    <type>java.lang.String</type>
-   <value>5</value>
+   <value>3</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -9977,7 +9977,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="CLK1_PHASE_SHIFT">
    <type>java.lang.String</type>
-   <value>9155</value>
+   <value>10173</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -9985,7 +9985,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="CLK2_PHASE_SHIFT">
    <type>java.lang.String</type>
-   <value>9155</value>
+   <value>10173</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -10737,7 +10737,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="HIDDEN_CONSTANTS">
    <type>java.lang.String</type>
-   <value>CT#CLK2_DIVIDE_BY 2 CT#PORT_clk5 PORT_UNUSED CT#PORT_clk4 PORT_UNUSED CT#PORT_clk3 PORT_UNUSED CT#PORT_clk2 PORT_USED CT#PORT_clk1 PORT_USED CT#PORT_clk0 PORT_USED CT#VALID_LOCK_MULTIPLIER 1 CT#CLK0_MULTIPLY_BY 5 CT#PORT_SCANWRITE PORT_UNUSED CT#PORT_SCANACLR PORT_UNUSED CT#PORT_PFDENA PORT_UNUSED CT#PORT_PLLENA PORT_UNUSED CT#PORT_SCANDATA PORT_UNUSED CT#PORT_SCANCLKENA PORT_UNUSED CT#PORT_SCANDATAOUT PORT_UNUSED CT#LPM_TYPE altpll CT#CLK0_PHASE_SHIFT 0 CT#CLK1_DUTY_CYCLE 50 CT#PORT_PHASEDONE PORT_UNUSED CT#OPERATION_MODE NORMAL CT#PORT_CONFIGUPDATE PORT_UNUSED CT#CLK1_MULTIPLY_BY 5 CT#COMPENSATE_CLOCK CLK0 CT#PORT_CLKSWITCH PORT_UNUSED CT#INCLK0_INPUT_FREQUENCY 30517 CT#PORT_SCANDONE PORT_UNUSED CT#PORT_CLKLOSS PORT_UNUSED CT#PORT_INCLK1 PORT_UNUSED CT#AVALON_USE_SEPARATE_SYSCLK NO CT#PORT_INCLK0 PORT_USED CT#PORT_clkena5 PORT_UNUSED CT#PORT_clkena4 PORT_UNUSED CT#PORT_clkena3 PORT_UNUSED CT#PORT_clkena2 PORT_UNUSED CT#PORT_clkena1 PORT_UNUSED CT#PORT_clkena0 PORT_UNUSED CT#CLK1_PHASE_SHIFT 9155 CT#PORT_ARESET PORT_USED CT#INVALID_LOCK_MULTIPLIER 5 CT#CLK2_MULTIPLY_BY 5 CT#INTENDED_DEVICE_FAMILY {Cyclone II} CT#PORT_SCANREAD PORT_UNUSED CT#CLK2_DUTY_CYCLE 50 CT#PORT_PHASESTEP PORT_UNUSED CT#PORT_SCANCLK PORT_UNUSED CT#PORT_CLKBAD1 PORT_UNUSED CT#PORT_CLKBAD0 PORT_UNUSED CT#PORT_FBIN PORT_UNUSED CT#PORT_PHASEUPDOWN PORT_UNUSED CT#PORT_extclk3 PORT_UNUSED CT#PORT_extclk2 PORT_UNUSED CT#PORT_extclk1 PORT_UNUSED CT#PORT_PHASECOUNTERSELECT PORT_UNUSED CT#PORT_extclk0 PORT_UNUSED CT#PORT_ACTIVECLOCK PORT_UNUSED CT#CLK2_PHASE_SHIFT 9155 CT#CLK0_DUTY_CYCLE 50 CT#CLK0_DIVIDE_BY 2 CT#CLK1_DIVIDE_BY 2 CT#GATE_LOCK_SIGNAL NO CT#PORT_LOCKED PORT_USED</value>
+   <value>CT#CLK2_DIVIDE_BY 2 CT#PORT_clk5 PORT_UNUSED CT#PORT_clk4 PORT_UNUSED CT#PORT_clk3 PORT_UNUSED CT#PORT_clk2 PORT_USED CT#PORT_clk1 PORT_USED CT#PORT_clk0 PORT_USED CT#VALID_LOCK_MULTIPLIER 1 CT#CLK0_MULTIPLY_BY 3 CT#PORT_SCANWRITE PORT_UNUSED CT#PORT_SCANACLR PORT_UNUSED CT#PORT_PFDENA PORT_UNUSED CT#PORT_PLLENA PORT_UNUSED CT#PORT_SCANDATA PORT_UNUSED CT#PORT_SCANCLKENA PORT_UNUSED CT#PORT_SCANDATAOUT PORT_UNUSED CT#LPM_TYPE altpll CT#CLK0_PHASE_SHIFT 0 CT#CLK1_DUTY_CYCLE 50 CT#PORT_PHASEDONE PORT_UNUSED CT#OPERATION_MODE NORMAL CT#PORT_CONFIGUPDATE PORT_UNUSED CT#CLK1_MULTIPLY_BY 3 CT#COMPENSATE_CLOCK CLK0 CT#PORT_CLKSWITCH PORT_UNUSED CT#INCLK0_INPUT_FREQUENCY 30517 CT#PORT_SCANDONE PORT_UNUSED CT#PORT_CLKLOSS PORT_UNUSED CT#PORT_INCLK1 PORT_UNUSED CT#AVALON_USE_SEPARATE_SYSCLK NO CT#PORT_INCLK0 PORT_USED CT#PORT_clkena5 PORT_UNUSED CT#PORT_clkena4 PORT_UNUSED CT#PORT_clkena3 PORT_UNUSED CT#PORT_clkena2 PORT_UNUSED CT#PORT_clkena1 PORT_UNUSED CT#PORT_clkena0 PORT_UNUSED CT#CLK1_PHASE_SHIFT 10173 CT#PORT_ARESET PORT_USED CT#INVALID_LOCK_MULTIPLIER 5 CT#CLK2_MULTIPLY_BY 3 CT#INTENDED_DEVICE_FAMILY {Cyclone II} CT#PORT_SCANREAD PORT_UNUSED CT#CLK2_DUTY_CYCLE 50 CT#PORT_PHASESTEP PORT_UNUSED CT#PORT_SCANCLK PORT_UNUSED CT#PORT_CLKBAD1 PORT_UNUSED CT#PORT_CLKBAD0 PORT_UNUSED CT#PORT_FBIN PORT_UNUSED CT#PORT_PHASEUPDOWN PORT_UNUSED CT#PORT_extclk3 PORT_UNUSED CT#PORT_extclk2 PORT_UNUSED CT#PORT_extclk1 PORT_UNUSED CT#PORT_PHASECOUNTERSELECT PORT_UNUSED CT#PORT_extclk0 PORT_UNUSED CT#PORT_ACTIVECLOCK PORT_UNUSED CT#CLK2_PHASE_SHIFT 10173 CT#CLK0_DUTY_CYCLE 50 CT#CLK0_DIVIDE_BY 2 CT#CLK1_DIVIDE_BY 2 CT#GATE_LOCK_SIGNAL NO CT#PORT_LOCKED PORT_USED</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -10745,7 +10745,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="HIDDEN_PRIVATES">
    <type>java.lang.String</type>
-   <value>PT#GLOCKED_FEATURE_ENABLED 1 PT#SPREAD_FEATURE_ENABLED 0 PT#BANDWIDTH_FREQ_UNIT MHz PT#CUR_DEDICATED_CLK c0 PT#INCLK0_FREQ_EDIT 32.768 PT#BANDWIDTH_PRESET Low PT#PLL_LVDS_PLL_CHECK 0 PT#BANDWIDTH_USE_PRESET 0 PT#AVALON_USE_SEPARATE_SYSCLK NO PT#PLL_ENHPLL_CHECK 0 PT#OUTPUT_FREQ_UNIT2 MHz PT#OUTPUT_FREQ_UNIT1 MHz PT#OUTPUT_FREQ_UNIT0 MHz PT#PHASE_RECONFIG_FEATURE_ENABLED 0 PT#CREATE_CLKBAD_CHECK 0 PT#CLKSWITCH_CHECK 1 PT#INCLK1_FREQ_EDIT 100.000 PT#NORMAL_MODE_RADIO 1 PT#SRC_SYNCH_COMP_RADIO 0 PT#PLL_ARESET_CHECK 1 PT#LONG_SCAN_RADIO 1 PT#SCAN_FEATURE_ENABLED 0 PT#USE_CLK2 1 PT#PHASE_RECONFIG_INPUTS_CHECK 0 PT#USE_CLK1 1 PT#USE_CLK0 1 PT#PRIMARY_CLK_COMBO inclk0 PT#BANDWIDTH 1.000 PT#GLOCKED_COUNTER_EDIT_CHANGED 1 PT#PLL_ENA_CHECK 0 PT#PLL_FASTPLL_CHECK 0 PT#SPREAD_FREQ_UNIT KHz PT#PLL_AUTOPLL_CHECK 1 PT#LVDS_PHASE_SHIFT_UNIT2 deg PT#LVDS_PHASE_SHIFT_UNIT1 deg PT#OUTPUT_FREQ_MODE2 0 PT#LVDS_PHASE_SHIFT_UNIT0 deg PT#OUTPUT_FREQ_MODE1 0 PT#SWITCHOVER_FEATURE_ENABLED 0 PT#MIG_DEVICE_SPEED_GRADE Any PT#OUTPUT_FREQ_MODE0 0 PT#BANDWIDTH_FEATURE_ENABLED 0 PT#INCLK0_FREQ_UNIT_COMBO MHz PT#ZERO_DELAY_RADIO 0 PT#OUTPUT_FREQ2 100.00000000 PT#OUTPUT_FREQ1 100.00000000 PT#OUTPUT_FREQ0 80.00000000 PT#SHORT_SCAN_RADIO 0 PT#LVDS_MODE_DATA_RATE_DIRTY 0 PT#CUR_FBIN_CLK c0 PT#PLL_ADVANCED_PARAM_CHECK 0 PT#CLKBAD_SWITCHOVER_CHECK 0 PT#PHASE_SHIFT_STEP_ENABLED_CHECK 0 PT#DEVICE_SPEED_GRADE 8 PT#PLL_FBMIMIC_CHECK 0 PT#LVDS_MODE_DATA_RATE {Not Available} PT#LOCKED_OUTPUT_CHECK 1 PT#SPREAD_PERCENT 0.500 PT#PHASE_SHIFT2 270.00000000 PT#PHASE_SHIFT1 270.00000000 PT#DIV_FACTOR2 2 PT#PHASE_SHIFT0 0.00000000 PT#DIV_FACTOR1 2 PT#DIV_FACTOR0 2 PT#CNX_NO_COMPENSATE_RADIO 0 PT#USE_CLKENA2 0 PT#USE_CLKENA1 0 PT#USE_CLKENA0 0 PT#CREATE_INCLK1_CHECK 0 PT#GLOCK_COUNTER_EDIT 1048575 PT#BANDWIDTH_USE_CUSTOM 0 PT#INCLK1_FREQ_UNIT_COMBO MHz PT#EFF_OUTPUT_FREQ_VALUE2 81.919998 PT#EFF_OUTPUT_FREQ_VALUE1 81.919998 PT#EFF_OUTPUT_FREQ_VALUE0 81.919998 PT#SPREAD_FREQ 50.000 PT#USE_MIL_SPEED_GRADE 0 PT#EXPLICIT_SWITCHOVER_COUNTER 0 PT#STICKY_CLK2 1 PT#STICKY_CLK1 1 PT#STICKY_CLK0 1 PT#EXT_FEEDBACK_RADIO 0 PT#MIRROR_CLK2 0 PT#MIRROR_CLK1 0 PT#SWITCHOVER_COUNT_EDIT 1 PT#MIRROR_CLK0 0 PT#SELF_RESET_LOCK_LOSS 0 PT#PLL_PFDENA_CHECK 0 PT#INT_FEEDBACK__MODE_RADIO 1 PT#INCLK1_FREQ_EDIT_CHANGED 1 PT#SYNTH_WRAPPER_GEN_POSTFIX 0 PT#CLKLOSS_CHECK 0 PT#PHASE_SHIFT_UNIT2 deg PT#PHASE_SHIFT_UNIT1 deg PT#PHASE_SHIFT_UNIT0 deg PT#BANDWIDTH_USE_AUTO 1 PT#HAS_MANUAL_SWITCHOVER 1 PT#MULT_FACTOR2 5 PT#MULT_FACTOR1 5 PT#MULT_FACTOR0 5 PT#SPREAD_USE 0 PT#GLOCKED_MODE_CHECK 0 PT#DUTY_CYCLE2 50.00000000 PT#SACN_INPUTS_CHECK 0 PT#DUTY_CYCLE1 50.00000000 PT#INTENDED_DEVICE_FAMILY {Cyclone II} PT#DUTY_CYCLE0 50.00000000 PT#PLL_TARGET_HARCOPY_CHECK 0 PT#INCLK1_FREQ_UNIT_CHANGED 1 PT#RECONFIG_FILE ALTPLL1303329632025845.mif PT#ACTIVECLK_CHECK 0</value>
+   <value>PT#GLOCKED_FEATURE_ENABLED 1 PT#SPREAD_FEATURE_ENABLED 0 PT#BANDWIDTH_FREQ_UNIT MHz PT#CUR_DEDICATED_CLK c0 PT#INCLK0_FREQ_EDIT 32.768 PT#BANDWIDTH_PRESET Low PT#PLL_LVDS_PLL_CHECK 0 PT#BANDWIDTH_USE_PRESET 0 PT#AVALON_USE_SEPARATE_SYSCLK NO PT#PLL_ENHPLL_CHECK 0 PT#OUTPUT_FREQ_UNIT2 MHz PT#OUTPUT_FREQ_UNIT1 MHz PT#OUTPUT_FREQ_UNIT0 MHz PT#PHASE_RECONFIG_FEATURE_ENABLED 0 PT#CREATE_CLKBAD_CHECK 0 PT#CLKSWITCH_CHECK 1 PT#INCLK1_FREQ_EDIT 100.000 PT#NORMAL_MODE_RADIO 1 PT#SRC_SYNCH_COMP_RADIO 0 PT#PLL_ARESET_CHECK 1 PT#LONG_SCAN_RADIO 1 PT#SCAN_FEATURE_ENABLED 0 PT#USE_CLK2 1 PT#PHASE_RECONFIG_INPUTS_CHECK 0 PT#USE_CLK1 1 PT#USE_CLK0 1 PT#PRIMARY_CLK_COMBO inclk0 PT#BANDWIDTH 1.000 PT#GLOCKED_COUNTER_EDIT_CHANGED 1 PT#PLL_ENA_CHECK 0 PT#PLL_FASTPLL_CHECK 0 PT#SPREAD_FREQ_UNIT KHz PT#PLL_AUTOPLL_CHECK 1 PT#LVDS_PHASE_SHIFT_UNIT2 deg PT#LVDS_PHASE_SHIFT_UNIT1 deg PT#OUTPUT_FREQ_MODE2 0 PT#LVDS_PHASE_SHIFT_UNIT0 deg PT#OUTPUT_FREQ_MODE1 0 PT#SWITCHOVER_FEATURE_ENABLED 0 PT#MIG_DEVICE_SPEED_GRADE Any PT#OUTPUT_FREQ_MODE0 0 PT#BANDWIDTH_FEATURE_ENABLED 0 PT#INCLK0_FREQ_UNIT_COMBO MHz PT#ZERO_DELAY_RADIO 0 PT#OUTPUT_FREQ2 100.00000000 PT#OUTPUT_FREQ1 100.00000000 PT#OUTPUT_FREQ0 80.00000000 PT#SHORT_SCAN_RADIO 0 PT#LVDS_MODE_DATA_RATE_DIRTY 0 PT#CUR_FBIN_CLK c0 PT#PLL_ADVANCED_PARAM_CHECK 0 PT#CLKBAD_SWITCHOVER_CHECK 0 PT#PHASE_SHIFT_STEP_ENABLED_CHECK 0 PT#DEVICE_SPEED_GRADE 8 PT#PLL_FBMIMIC_CHECK 0 PT#LVDS_MODE_DATA_RATE {Not Available} PT#LOCKED_OUTPUT_CHECK 1 PT#SPREAD_PERCENT 0.500 PT#PHASE_SHIFT2 180.00000000 PT#PHASE_SHIFT1 180.00000000 PT#DIV_FACTOR2 2 PT#PHASE_SHIFT0 0.00000000 PT#DIV_FACTOR1 2 PT#DIV_FACTOR0 2 PT#CNX_NO_COMPENSATE_RADIO 0 PT#USE_CLKENA2 0 PT#USE_CLKENA1 0 PT#USE_CLKENA0 0 PT#CREATE_INCLK1_CHECK 0 PT#GLOCK_COUNTER_EDIT 1048575 PT#BANDWIDTH_USE_CUSTOM 0 PT#INCLK1_FREQ_UNIT_COMBO MHz PT#EFF_OUTPUT_FREQ_VALUE2 49.152000 PT#EFF_OUTPUT_FREQ_VALUE1 49.152000 PT#EFF_OUTPUT_FREQ_VALUE0 49.152000 PT#SPREAD_FREQ 50.000 PT#USE_MIL_SPEED_GRADE 0 PT#EXPLICIT_SWITCHOVER_COUNTER 0 PT#STICKY_CLK2 1 PT#STICKY_CLK1 1 PT#STICKY_CLK0 1 PT#EXT_FEEDBACK_RADIO 0 PT#MIRROR_CLK2 0 PT#MIRROR_CLK1 0 PT#SWITCHOVER_COUNT_EDIT 1 PT#MIRROR_CLK0 0 PT#SELF_RESET_LOCK_LOSS 0 PT#PLL_PFDENA_CHECK 0 PT#INT_FEEDBACK__MODE_RADIO 1 PT#INCLK1_FREQ_EDIT_CHANGED 1 PT#SYNTH_WRAPPER_GEN_POSTFIX 0 PT#CLKLOSS_CHECK 0 PT#PHASE_SHIFT_UNIT2 deg PT#PHASE_SHIFT_UNIT1 deg PT#PHASE_SHIFT_UNIT0 deg PT#BANDWIDTH_USE_AUTO 1 PT#HAS_MANUAL_SWITCHOVER 1 PT#MULT_FACTOR2 3 PT#MULT_FACTOR1 3 PT#MULT_FACTOR0 3 PT#SPREAD_USE 0 PT#GLOCKED_MODE_CHECK 0 PT#DUTY_CYCLE2 50.00000000 PT#SACN_INPUTS_CHECK 0 PT#DUTY_CYCLE1 50.00000000 PT#INTENDED_DEVICE_FAMILY {Cyclone II} PT#DUTY_CYCLE0 50.00000000 PT#PLL_TARGET_HARCOPY_CHECK 0 PT#INCLK1_FREQ_UNIT_CHANGED 1 PT#RECONFIG_FILE ALTPLL1303329632025845.mif PT#ACTIVECLK_CHECK 0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -11292,7 +11292,7 @@ parameters are a RESULT of the module parameters. -->
    </parameter>
    <parameter name="clockRate">
     <type>long</type>
-    <value>81919998</value>
+    <value>49152000</value>
     <derived>false</derived>
     <enabled>true</enabled>
     <visible>true</visible>
@@ -11445,7 +11445,7 @@ parameters are a RESULT of the module parameters. -->
    </parameter>
    <parameter name="clockRate">
     <type>long</type>
-    <value>81919998</value>
+    <value>49152000</value>
     <derived>false</derived>
     <enabled>true</enabled>
     <visible>true</visible>
@@ -11514,7 +11514,7 @@ parameters are a RESULT of the module parameters. -->
    </parameter>
    <parameter name="clockRate">
     <type>long</type>
-    <value>81919998</value>
+    <value>49152000</value>
     <derived>false</derived>
     <enabled>true</enabled>
     <visible>true</visible>
@@ -11673,7 +11673,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.FREQ</name>
-   <value>81919998u</value>
+   <value>49152000u</value>
   </assignment>
   <parameter name="baud">
    <type>int</type>
@@ -11685,7 +11685,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="baudError">
    <type>double</type>
-   <value>0.02</value>
+   <value>0.08</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -11693,7 +11693,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="clockRate">
    <type>long</type>
-   <value>81919998</value>
+   <value>49152000</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -11857,7 +11857,7 @@ parameters are a RESULT of the module parameters. -->
    </parameter>
    <parameter name="clockRate">
     <type>java.lang.Long</type>
-    <value>81919998</value>
+    <value>49152000</value>
     <derived>true</derived>
     <enabled>true</enabled>
     <visible>false</visible>
@@ -12428,7 +12428,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.FREQ</name>
-   <value>81919998u</value>
+   <value>49152000u</value>
   </assignment>
   <parameter name="bitClearingEdgeCapReg">
    <type>boolean</type>
@@ -12456,7 +12456,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="clockRate">
    <type>long</type>
-   <value>81919998</value>
+   <value>49152000</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -12588,7 +12588,7 @@ parameters are a RESULT of the module parameters. -->
    </parameter>
    <parameter name="clockRate">
     <type>java.lang.Long</type>
-    <value>81919998</value>
+    <value>49152000</value>
     <derived>true</derived>
     <enabled>true</enabled>
     <visible>false</visible>
@@ -17215,19 +17215,11 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>avalon_jtag_slave</endConnectionPoint>
  </connection>
  <plugin>
-  <instanceCount>4</instanceCount>
-  <name>conduit</name>
+  <instanceCount>2</instanceCount>
+  <name>clock_sink</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Conduit Endpoint</displayName>
-  <version>7.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>clock_source</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Clock Output</displayName>
+  <displayName>Clock Input</displayName>
   <version>10.1</version>
  </plugin>
  <plugin>
@@ -17240,22 +17232,14 @@ parameters are a RESULT of the module parameters. -->
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
-  <name>altera_avalon_jtag_uart</name>
+  <name>altera_avalon_epcs_flash_controller</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>JTAG UART</displayName>
+  <displayName>EPCS Serial Flash Controller</displayName>
   <version>10.1</version>
  </plugin>
  <plugin>
-  <instanceCount>12</instanceCount>
-  <name>avalon_slave</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Memory Mapped Slave</displayName>
-  <version>10.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
+  <instanceCount>5</instanceCount>
   <name>interrupt_sender</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
@@ -17263,11 +17247,19 @@ parameters are a RESULT of the module parameters. -->
   <version>10.1</version>
  </plugin>
  <plugin>
-  <instanceCount>2</instanceCount>
-  <name>avalon_tristate</name>
+  <instanceCount>17</instanceCount>
+  <name>avalon</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Avalon Memory Mapped Tristate Connection</displayName>
+  <displayName>Avalon Memory Mapped Connection</displayName>
+  <version>10.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>15</instanceCount>
+  <name>clock_sink</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Clock Input</displayName>
   <version>10.1</version>
  </plugin>
  <plugin>
@@ -17279,11 +17271,35 @@ parameters are a RESULT of the module parameters. -->
   <version>10.1</version>
  </plugin>
  <plugin>
+  <instanceCount>1</instanceCount>
+  <name>ddr_sdram_component_classic</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>DDR SDRAM Controller MegaCore Function - Altera Corporation</displayName>
+  <version>10.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>altpll</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Avalon ALTPLL</displayName>
+  <version>10.1</version>
+ </plugin>
+ <plugin>
   <instanceCount>2</instanceCount>
-  <name>avalon_slave</name>
+  <name>altera_avalon_pio</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>PIO (Parallel I/O)</displayName>
+  <version>10.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>3</instanceCount>
+  <name>conduit_end</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Memory Mapped Slave</displayName>
+  <displayName>Conduit</displayName>
   <version>10.1</version>
  </plugin>
  <plugin>
@@ -17292,6 +17308,14 @@ parameters are a RESULT of the module parameters. -->
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
   <displayName>Avalon-MM Tristate Bridge</displayName>
+  <version>10.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>16</instanceCount>
+  <name>clock</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Clock Connection</displayName>
   <version>10.1</version>
  </plugin>
  <plugin>
@@ -17311,123 +17335,11 @@ parameters are a RESULT of the module parameters. -->
   <version>10.1</version>
  </plugin>
  <plugin>
-  <instanceCount>11</instanceCount>
-  <name>reset_sink</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Reset Input</displayName>
-  <version>10.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>altera_avalon_pipeline_bridge</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Avalon-MM Pipeline Bridge</displayName>
-  <version>10.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>altera_avalon_timer</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Interval Timer</displayName>
-  <version>10.1</version>
- </plugin>
- <plugin>
   <instanceCount>2</instanceCount>
-  <name>clock_sink</name>
+  <name>avalon_tristate_slave</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Clock Input</displayName>
-  <version>10.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>clock_source</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Clock Source</displayName>
-  <version>10.1</version>
- </plugin>
- <plugin>
-  <instanceCount>3</instanceCount>
-  <name>clock_source</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Clock Output</displayName>
-  <version>10.1</version>
- </plugin>
- <plugin>
-  <instanceCount>5</instanceCount>
-  <name>interrupt_sender</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Interrupt Sender</displayName>
-  <version>10.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>altera_avalon_lan91c111</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>LAN91C111 Interface</displayName>
-  <version>10.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>altera_avalon_uart</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>UART (RS-232 Serial Port)</displayName>
-  <version>10.1</version>
- </plugin>
- <plugin>
-  <instanceCount>2</instanceCount>
-  <name>reset_source</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Reset Output</displayName>
-  <version>10.1</version>
- </plugin>
- <plugin>
-  <instanceCount>17</instanceCount>
-  <name>avalon</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Avalon Memory Mapped Connection</displayName>
-  <version>10.1</version>
- </plugin>
- <plugin>
-  <instanceCount>5</instanceCount>
-  <name>avalon_master</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Memory Mapped Master</displayName>
-  <version>10.1</version>
- </plugin>
- <plugin>
-  <instanceCount>15</instanceCount>
-  <name>clock_sink</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Clock Input</displayName>
-  <version>10.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>altera_nios2</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Nios II Processor</displayName>
-  <version>10.1</version>
- </plugin>
- <plugin>
-  <instanceCount>16</instanceCount>
-  <name>clock</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Clock Connection</displayName>
+  <displayName>Avalon Memory Mapped Tristate Slave</displayName>
   <version>10.1</version>
  </plugin>
  <plugin>
@@ -17440,26 +17352,58 @@ parameters are a RESULT of the module parameters. -->
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
-  <name>altera_avalon_cfi_flash</name>
+  <name>altera_avalon_uart</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Flash Memory Interface (CFI)</displayName>
+  <displayName>UART (RS-232 Serial Port)</displayName>
   <version>10.1</version>
  </plugin>
  <plugin>
-  <instanceCount>3</instanceCount>
-  <name>conduit_end</name>
+  <instanceCount>1</instanceCount>
+  <name>clock_source</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Conduit</displayName>
+  <displayName>Clock Output</displayName>
   <version>10.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>4</instanceCount>
+  <name>conduit</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Conduit Endpoint</displayName>
+  <version>7.1</version>
  </plugin>
  <plugin>
   <instanceCount>2</instanceCount>
-  <name>avalon_tristate_slave</name>
+  <name>reset_source</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Memory Mapped Tristate Slave</displayName>
+  <displayName>Reset Output</displayName>
+  <version>10.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>altera_avalon_lan91c111</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>LAN91C111 Interface</displayName>
+  <version>10.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>interrupt_sender</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Interrupt Sender</displayName>
+  <version>10.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>5</instanceCount>
+  <name>avalon_master</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Avalon Memory Mapped Master</displayName>
   <version>10.1</version>
  </plugin>
  <plugin>
@@ -17472,18 +17416,26 @@ parameters are a RESULT of the module parameters. -->
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
-  <name>altpll</name>
+  <name>altera_avalon_timer</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Avalon ALTPLL</displayName>
+  <displayName>Interval Timer</displayName>
   <version>10.1</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
-  <name>ddr_sdram_component_classic</name>
+  <name>altera_avalon_jtag_uart</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>DDR SDRAM Controller MegaCore Function - Altera Corporation</displayName>
+  <displayName>JTAG UART</displayName>
+  <version>10.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>2</instanceCount>
+  <name>avalon_tristate</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Avalon Memory Mapped Tristate Connection</displayName>
   <version>10.1</version>
  </plugin>
  <plugin>
@@ -17495,21 +17447,69 @@ parameters are a RESULT of the module parameters. -->
   <version>10.1</version>
  </plugin>
  <plugin>
-  <instanceCount>2</instanceCount>
-  <name>altera_avalon_pio</name>
+  <instanceCount>1</instanceCount>
+  <name>clock_source</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>PIO (Parallel I/O)</displayName>
+  <displayName>Clock Source</displayName>
   <version>10.1</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
-  <name>altera_avalon_epcs_flash_controller</name>
+  <name>altera_avalon_pipeline_bridge</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>EPCS Serial Flash Controller</displayName>
+  <displayName>Avalon-MM Pipeline Bridge</displayName>
+  <version>10.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>12</instanceCount>
+  <name>avalon_slave</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Avalon Memory Mapped Slave</displayName>
+  <version>10.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>11</instanceCount>
+  <name>reset_sink</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Reset Input</displayName>
+  <version>10.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>altera_avalon_cfi_flash</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Flash Memory Interface (CFI)</displayName>
+  <version>10.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>altera_nios2</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Nios II Processor</displayName>
+  <version>10.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>3</instanceCount>
+  <name>clock_source</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Clock Output</displayName>
+  <version>10.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>2</instanceCount>
+  <name>avalon_slave</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Avalon Memory Mapped Slave</displayName>
   <version>10.1</version>
  </plugin>
  <reportVersion>10.1sp1 197</reportVersion>
- <uniqueIdentifier>0022FB59BE740000012FAD0E43CD</uniqueIdentifier>
+ <uniqueIdentifier>0022FB59BE740000012FC6ADBEC5</uniqueIdentifier>
 </EnsembleReport>

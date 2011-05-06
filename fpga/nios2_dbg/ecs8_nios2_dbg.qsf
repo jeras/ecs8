@@ -48,7 +48,6 @@ set_global_assignment -name DEVICE_FILTER_PACKAGE "ANY QFP"
 set_global_assignment -name DEVICE_FILTER_PIN_COUNT 208
 set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 8
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
-set_global_assignment -name QIP_FILE soc_dbg.qip
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -420,9 +419,8 @@ set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to uart_user_txd
 
 
 set_global_assignment -name POST_FLOW_SCRIPT_FILE "quartus_sh:auto_verify_ddr_timing.tcl"
-set_global_assignment -name QIP_FILE ddr_sdram.qip
 
-set_instance_assignment -name DQS_FREQUENCY "81.919998 MHz" -to ddr_dqs
+set_instance_assignment -name DQS_FREQUENCY "49.152 MHz" -to ddr_dqs
 set_instance_assignment -name OUTPUT_ENABLE_GROUP 1 -to ddr_dm
 set_instance_assignment -name OUTPUT_ENABLE_GROUP 1 -to ddr_dqs
 set_instance_assignment -name OUTPUT_ENABLE_GROUP 1 -to ddr_dq
@@ -708,4 +706,8 @@ set_location_assignment PIN_179 -to ddr_dm[1]
 set_location_assignment LAB_X18_Y17 -to "soc_dbg:soc|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_out:dm_pin|ddio_out_sbf:auto_generated|output_cell_H[0]"
 set_location_assignment LAB_X18_Y17 -to "soc_dbg:soc|ddr_sdram:the_ddr_sdram|ddr_sdram_auk_ddr_sdram:ddr_sdram_auk_ddr_sdram_inst|ddr_sdram_auk_ddr_datapath:ddr_io|ddr_sdram_auk_ddr_dqs_group:\\g_datapath:1:g_ddr_io|altddio_out:dm_pin|ddio_out_sbf:auto_generated|output_cell_L[0]"
 
+set_global_assignment -name VERILOG_FILE ecs8_nios2_dbg.v
+set_global_assignment -name VERILOG_FILE ../../hdl/reset/reset.v
+set_global_assignment -name QIP_FILE soc_dbg.qip
+set_global_assignment -name QIP_FILE ddr_sdram.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
