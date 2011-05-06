@@ -1,0 +1,14 @@
+[timestart] 0
+[size] 1366 744
+[pos] -1 -1
+*-16.918209 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] reset_tb.
+@28
+reset_tb.reset.clk
+@25
+reset_tb.reset.cnt[2:0]
+@28
+reset_tb.reset.rst_n_i
+reset_tb.reset.rst_n_o
+[pattern_trace] 1
+[pattern_trace] 0
