@@ -74,7 +74,7 @@ wire        onewire_p;
 // reset source (10ms debounce)
 reset #(500) reset (
   .clk      (clk_int),
-  .rst_n_i  (~button[1] & ~pll_locked),
+  .rst_n_i  (~button[1] & pll_locked),
   .rst_n_o  (rst_n)
 );
 
