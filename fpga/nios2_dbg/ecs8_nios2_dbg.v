@@ -71,6 +71,15 @@ wire        onewire_e;
 wire        onewire_i;
 wire        onewire_p;
 
+// PLL
+pll_soc pll (
+  .inclk0  (clk),              //       32.768MHz
+  .c0      (clk_int),          // 13/5  85.1968MHz    0deg
+  .c1      (clk_ddr_write),    // 13/5  85.1968MHz  270deg
+  .c2      (clk_ddr_resynch),  // 13/5  85.1968MHz  270deg
+  .locked  (pll_locked)
+);
+
 // reset source (10ms debounce)
 reset #(500) reset (
   .clk      (clk_int),
@@ -85,17 +94,8 @@ assign led_n[1] = ~led[1] & rst_n;
 // SOC instance
 soc_dbg soc (
   // system signals (clock, reset)
-  .clk_pin                            (clk),
-  .clk_int                            (clk_int),
-  .clk_ddr_write                      (clk_ddr_write),
-  .clk_ddr_resynch                    (clk_ddr_resynch),
+  .clk                                (clk_int),
   .reset_n                            (rst_n),
-  // PLL outputs
-  .locked_from_the_altpll_soc         (pll_locked),
-  .phasedone_from_the_altpll_soc      (),
-  // extra DDR clocks
-  .write_clk_to_the_ddr_sdram         (clk_ddr_write),
-//  .resynch_clk_to_the_ddr_sdram       (clk_ddr_resynch),
   // DDR SDRAM
   .clk_to_sdram_from_the_ddr_sdram    (ddr_ck_p),
   .clk_to_sdram_n_from_the_ddr_sdram  (ddr_ck_n),
