@@ -48,7 +48,7 @@
       }
       datum megawizard_uipreferences
       {
-         value = "{output_language=VERILOG, output_directory=/home/izi/Workplace/ecs8/fpga/nios2}";
+         value = "{}";
          type = "String";
       }
       datum sopceditor_expanded
@@ -214,7 +214,7 @@
       }
       datum sopceditor_expanded
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
    }
@@ -226,19 +226,11 @@
          type = "long";
       }
    }
-   element uart.s1
+   element onewire.s1
    {
       datum baseAddress
       {
-         value = "8454176";
-         type = "long";
-      }
-   }
-   element pio_o.s1
-   {
-      datum baseAddress
-      {
-         value = "8454208";
+         value = "8454256";
          type = "long";
       }
    }
@@ -258,11 +250,11 @@
          type = "long";
       }
    }
-   element onewire.s1
+   element timer.s1
    {
       datum baseAddress
       {
-         value = "8454256";
+         value = "8454144";
          type = "long";
       }
    }
@@ -274,27 +266,11 @@
          type = "long";
       }
    }
-   element onchip_ram.s1
-   {
-      datum baseAddress
-      {
-         value = "16785408";
-         type = "long";
-      }
-   }
    element pio_i.s1
    {
       datum baseAddress
       {
          value = "8454224";
-         type = "long";
-      }
-   }
-   element timer.s1
-   {
-      datum baseAddress
-      {
-         value = "8454144";
          type = "long";
       }
    }
@@ -308,6 +284,30 @@
       datum baseAddress
       {
          value = "268435456";
+         type = "long";
+      }
+   }
+   element onchip_ram.s1
+   {
+      datum baseAddress
+      {
+         value = "16785408";
+         type = "long";
+      }
+   }
+   element pio_o.s1
+   {
+      datum baseAddress
+      {
+         value = "8454208";
+         type = "long";
+      }
+   }
+   element uart.s1
+   {
+      datum baseAddress
+      {
+         value = "8454176";
          type = "long";
       }
    }
@@ -378,8 +378,8 @@
  <parameter name="maxAdditionalLatency" value="0" />
  <parameter name="projectName" value="ecs8_nios2_mmu.qpf" />
  <parameter name="sopcBorderPoints" value="true" />
- <parameter name="systemHash" value="-8214239018" />
- <parameter name="timeStamp" value="1304262454189" />
+ <parameter name="systemHash" value="-5348524679" />
+ <parameter name="timeStamp" value="1304865237834" />
  <module kind="clock_source" version="10.1" enabled="1" name="clk_pin">
   <parameter name="clockFrequency" value="32768000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -484,7 +484,7 @@
   <parameter name="customInstSlavesSystemInfo" value="&lt;info/&gt;" />
   <parameter name="cpuReset" value="false" />
   <parameter name="cpuID" value="0" />
-  <parameter name="clockFrequency" value="81919998" />
+  <parameter name="clockFrequency" value="85196800" />
   <parameter name="breakSlave">cpu.jtag_debug_module</parameter>
   <parameter name="breakOffset" value="32" />
  </module>
@@ -910,13 +910,13 @@
                      }
                      PRIVATE clock_pin_positive
                      {
-                        value = "ddr_ck_p[0]";
+                        value = "ddr_ck_p";
                         type = "STRING";
                         enable = "1";
                      }
                      PRIVATE clock_pin_negative
                      {
-                        value = "ddr_ck_n[0]";
+                        value = "ddr_ck_n";
                         type = "STRING";
                         enable = "1";
                      }
@@ -994,7 +994,7 @@
                      }
                      PRIVATE clock_speed
                      {
-                        value = "81.919998";
+                        value = "85.1968";
                         type = "STRING";
                         enable = "0";
                      }
@@ -1072,13 +1072,13 @@
                      }
                      PRIVATE trefi
                      {
-                        value = "637";
+                        value = "663";
                         type = "INTEGER";
                         enable = "0";
                      }
                      PRIVATE tinit_time
                      {
-                        value = "16382";
+                        value = "17038";
                         type = "INTEGER";
                         enable = "0";
                      }
@@ -1288,13 +1288,13 @@
                      }
                      PRIVATE board_tpd_clock_trace_nom
                      {
-                        value = "20";
+                        value = "400";
                         type = "INTEGER";
                         enable = "1";
                      }
                      PRIVATE board_tpd_dqs_trace_total_nom
                      {
-                        value = "20";
+                        value = "400";
                         type = "INTEGER";
                         enable = "1";
                      }
@@ -1306,7 +1306,7 @@
                      }
                      PRIVATE board_tskew_data_group
                      {
-                        value = "10";
+                        value = "150";
                         type = "INTEGER";
                         enable = "1";
                      }
@@ -1764,14 +1764,14 @@
    enabled="1"
    name="cfi_flash">
   <parameter name="addressWidth" value="22" />
-  <parameter name="clockRate" value="81919998" />
+  <parameter name="clockRate" value="85196800" />
   <parameter name="corePreset" value="CUSTOM" />
   <parameter name="dataWidth" value="16" />
-  <parameter name="holdTime" value="40" />
-  <parameter name="setupTime" value="40" />
+  <parameter name="holdTime" value="0" />
+  <parameter name="setupTime" value="0" />
   <parameter name="sharedPorts" value="s1/address,s1/data" />
   <parameter name="timingUnits" value="NS" />
-  <parameter name="waitTime" value="160" />
+  <parameter name="waitTime" value="90" />
  </module>
  <module
    kind="altera_avalon_lan91c111"
@@ -1789,7 +1789,7 @@
   <parameter name="OWN" value="1" />
   <parameter name="BTP_N" value="5.0" />
   <parameter name="BTP_O" value="1.0" />
-  <parameter name="F_CLK" value="81919998" />
+  <parameter name="F_CLK" value="85196800" />
  </module>
  <module
    kind="altera_avalon_tri_state_bridge"
@@ -1806,7 +1806,7 @@
   <parameter name="periodUnits" value="MSEC" />
   <parameter name="resetOutput" value="false" />
   <parameter name="snapshot" value="true" />
-  <parameter name="systemFrequency" value="81919998" />
+  <parameter name="systemFrequency" value="85196800" />
   <parameter name="timeoutPulseOutput" value="false" />
   <parameter name="timerPreset" value="CUSTOM" />
  </module>
@@ -1814,7 +1814,7 @@
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="81919998" />
+  <parameter name="clockRate" value="85196800" />
   <parameter name="direction" value="Output" />
   <parameter name="edgeType" value="RISING" />
   <parameter name="generateIRQ" value="false" />
@@ -1857,9 +1857,9 @@
   <parameter name="DOWN_SPREAD" value="" />
   <parameter name="SELF_RESET_ON_GATED_LOSS_LOCK" value="" />
   <parameter name="SELF_RESET_ON_LOSS_LOCK" value="" />
-  <parameter name="CLK0_MULTIPLY_BY" value="5" />
-  <parameter name="CLK1_MULTIPLY_BY" value="5" />
-  <parameter name="CLK2_MULTIPLY_BY" value="5" />
+  <parameter name="CLK0_MULTIPLY_BY" value="13" />
+  <parameter name="CLK1_MULTIPLY_BY" value="13" />
+  <parameter name="CLK2_MULTIPLY_BY" value="13" />
   <parameter name="CLK3_MULTIPLY_BY" value="" />
   <parameter name="CLK4_MULTIPLY_BY" value="" />
   <parameter name="CLK5_MULTIPLY_BY" value="" />
@@ -1871,9 +1871,9 @@
   <parameter name="EXTCLK1_MULTIPLY_BY" value="" />
   <parameter name="EXTCLK2_MULTIPLY_BY" value="" />
   <parameter name="EXTCLK3_MULTIPLY_BY" value="" />
-  <parameter name="CLK0_DIVIDE_BY" value="2" />
-  <parameter name="CLK1_DIVIDE_BY" value="2" />
-  <parameter name="CLK2_DIVIDE_BY" value="2" />
+  <parameter name="CLK0_DIVIDE_BY" value="5" />
+  <parameter name="CLK1_DIVIDE_BY" value="5" />
+  <parameter name="CLK2_DIVIDE_BY" value="5" />
   <parameter name="CLK3_DIVIDE_BY" value="" />
   <parameter name="CLK4_DIVIDE_BY" value="" />
   <parameter name="CLK5_DIVIDE_BY" value="" />
@@ -1886,8 +1886,8 @@
   <parameter name="EXTCLK2_DIVIDE_BY" value="" />
   <parameter name="EXTCLK3_DIVIDE_BY" value="" />
   <parameter name="CLK0_PHASE_SHIFT" value="0" />
-  <parameter name="CLK1_PHASE_SHIFT" value="9155" />
-  <parameter name="CLK2_PHASE_SHIFT" value="9155" />
+  <parameter name="CLK1_PHASE_SHIFT" value="8803" />
+  <parameter name="CLK2_PHASE_SHIFT" value="8803" />
   <parameter name="CLK3_PHASE_SHIFT" value="" />
   <parameter name="CLK4_PHASE_SHIFT" value="" />
   <parameter name="CLK5_PHASE_SHIFT" value="" />
@@ -1981,8 +1981,8 @@
   <parameter name="USING_FBMIMICBIDIR_PORT" value="" />
   <parameter name="SCAN_CHAIN_MIF_FILE" value="" />
   <parameter name="AVALON_USE_SEPARATE_SYSCLK" value="NO" />
-  <parameter name="HIDDEN_CONSTANTS">CT#CLK2_DIVIDE_BY 2 CT#PORT_clk5 PORT_UNUSED CT#PORT_clk4 PORT_UNUSED CT#PORT_clk3 PORT_UNUSED CT#PORT_clk2 PORT_USED CT#PORT_clk1 PORT_USED CT#PORT_clk0 PORT_USED CT#VALID_LOCK_MULTIPLIER 1 CT#CLK0_MULTIPLY_BY 5 CT#PORT_SCANWRITE PORT_UNUSED CT#PORT_SCANACLR PORT_UNUSED CT#PORT_PFDENA PORT_UNUSED CT#PORT_PLLENA PORT_UNUSED CT#PORT_SCANDATA PORT_UNUSED CT#PORT_SCANCLKENA PORT_UNUSED CT#PORT_SCANDATAOUT PORT_UNUSED CT#LPM_TYPE altpll CT#CLK0_PHASE_SHIFT 0 CT#CLK1_DUTY_CYCLE 50 CT#PORT_PHASEDONE PORT_UNUSED CT#OPERATION_MODE NORMAL CT#PORT_CONFIGUPDATE PORT_UNUSED CT#CLK1_MULTIPLY_BY 5 CT#COMPENSATE_CLOCK CLK0 CT#PORT_CLKSWITCH PORT_UNUSED CT#INCLK0_INPUT_FREQUENCY 30517 CT#PORT_SCANDONE PORT_UNUSED CT#PORT_CLKLOSS PORT_UNUSED CT#PORT_INCLK1 PORT_UNUSED CT#AVALON_USE_SEPARATE_SYSCLK NO CT#PORT_INCLK0 PORT_USED CT#PORT_clkena5 PORT_UNUSED CT#PORT_clkena4 PORT_UNUSED CT#PORT_clkena3 PORT_UNUSED CT#PORT_clkena2 PORT_UNUSED CT#PORT_clkena1 PORT_UNUSED CT#PORT_clkena0 PORT_UNUSED CT#CLK1_PHASE_SHIFT 9155 CT#PORT_ARESET PORT_USED CT#INVALID_LOCK_MULTIPLIER 5 CT#CLK2_MULTIPLY_BY 5 CT#INTENDED_DEVICE_FAMILY {Cyclone II} CT#PORT_SCANREAD PORT_UNUSED CT#CLK2_DUTY_CYCLE 50 CT#PORT_PHASESTEP PORT_UNUSED CT#PORT_SCANCLK PORT_UNUSED CT#PORT_CLKBAD1 PORT_UNUSED CT#PORT_CLKBAD0 PORT_UNUSED CT#PORT_FBIN PORT_UNUSED CT#PORT_PHASEUPDOWN PORT_UNUSED CT#PORT_extclk3 PORT_UNUSED CT#PORT_extclk2 PORT_UNUSED CT#PORT_extclk1 PORT_UNUSED CT#PORT_PHASECOUNTERSELECT PORT_UNUSED CT#PORT_extclk0 PORT_UNUSED CT#PORT_ACTIVECLOCK PORT_UNUSED CT#CLK2_PHASE_SHIFT 9155 CT#CLK0_DUTY_CYCLE 50 CT#CLK0_DIVIDE_BY 2 CT#CLK1_DIVIDE_BY 2 CT#GATE_LOCK_SIGNAL NO CT#PORT_LOCKED PORT_USED</parameter>
-  <parameter name="HIDDEN_PRIVATES">PT#GLOCKED_FEATURE_ENABLED 1 PT#SPREAD_FEATURE_ENABLED 0 PT#BANDWIDTH_FREQ_UNIT MHz PT#CUR_DEDICATED_CLK c0 PT#INCLK0_FREQ_EDIT 32.768 PT#BANDWIDTH_PRESET Low PT#PLL_LVDS_PLL_CHECK 0 PT#BANDWIDTH_USE_PRESET 0 PT#AVALON_USE_SEPARATE_SYSCLK NO PT#PLL_ENHPLL_CHECK 0 PT#OUTPUT_FREQ_UNIT2 MHz PT#OUTPUT_FREQ_UNIT1 MHz PT#OUTPUT_FREQ_UNIT0 MHz PT#PHASE_RECONFIG_FEATURE_ENABLED 0 PT#CREATE_CLKBAD_CHECK 0 PT#CLKSWITCH_CHECK 1 PT#INCLK1_FREQ_EDIT 100.000 PT#NORMAL_MODE_RADIO 1 PT#SRC_SYNCH_COMP_RADIO 0 PT#PLL_ARESET_CHECK 1 PT#LONG_SCAN_RADIO 1 PT#SCAN_FEATURE_ENABLED 0 PT#USE_CLK2 1 PT#PHASE_RECONFIG_INPUTS_CHECK 0 PT#USE_CLK1 1 PT#USE_CLK0 1 PT#PRIMARY_CLK_COMBO inclk0 PT#BANDWIDTH 1.000 PT#GLOCKED_COUNTER_EDIT_CHANGED 1 PT#PLL_ENA_CHECK 0 PT#PLL_FASTPLL_CHECK 0 PT#SPREAD_FREQ_UNIT KHz PT#PLL_AUTOPLL_CHECK 1 PT#LVDS_PHASE_SHIFT_UNIT2 deg PT#LVDS_PHASE_SHIFT_UNIT1 deg PT#OUTPUT_FREQ_MODE2 0 PT#LVDS_PHASE_SHIFT_UNIT0 deg PT#OUTPUT_FREQ_MODE1 0 PT#SWITCHOVER_FEATURE_ENABLED 0 PT#MIG_DEVICE_SPEED_GRADE Any PT#OUTPUT_FREQ_MODE0 0 PT#BANDWIDTH_FEATURE_ENABLED 0 PT#INCLK0_FREQ_UNIT_COMBO MHz PT#ZERO_DELAY_RADIO 0 PT#OUTPUT_FREQ2 100.00000000 PT#OUTPUT_FREQ1 100.00000000 PT#OUTPUT_FREQ0 80.00000000 PT#SHORT_SCAN_RADIO 0 PT#LVDS_MODE_DATA_RATE_DIRTY 0 PT#CUR_FBIN_CLK c0 PT#PLL_ADVANCED_PARAM_CHECK 0 PT#CLKBAD_SWITCHOVER_CHECK 0 PT#PHASE_SHIFT_STEP_ENABLED_CHECK 0 PT#DEVICE_SPEED_GRADE 8 PT#PLL_FBMIMIC_CHECK 0 PT#LVDS_MODE_DATA_RATE {Not Available} PT#LOCKED_OUTPUT_CHECK 1 PT#SPREAD_PERCENT 0.500 PT#PHASE_SHIFT2 270.00000000 PT#PHASE_SHIFT1 270.00000000 PT#DIV_FACTOR2 2 PT#PHASE_SHIFT0 0.00000000 PT#DIV_FACTOR1 2 PT#DIV_FACTOR0 2 PT#CNX_NO_COMPENSATE_RADIO 0 PT#USE_CLKENA2 0 PT#USE_CLKENA1 0 PT#USE_CLKENA0 0 PT#CREATE_INCLK1_CHECK 0 PT#GLOCK_COUNTER_EDIT 1048575 PT#BANDWIDTH_USE_CUSTOM 0 PT#INCLK1_FREQ_UNIT_COMBO MHz PT#EFF_OUTPUT_FREQ_VALUE2 81.919998 PT#EFF_OUTPUT_FREQ_VALUE1 81.919998 PT#EFF_OUTPUT_FREQ_VALUE0 81.919998 PT#SPREAD_FREQ 50.000 PT#USE_MIL_SPEED_GRADE 0 PT#EXPLICIT_SWITCHOVER_COUNTER 0 PT#STICKY_CLK2 1 PT#STICKY_CLK1 1 PT#STICKY_CLK0 1 PT#EXT_FEEDBACK_RADIO 0 PT#MIRROR_CLK2 0 PT#MIRROR_CLK1 0 PT#SWITCHOVER_COUNT_EDIT 1 PT#MIRROR_CLK0 0 PT#SELF_RESET_LOCK_LOSS 0 PT#PLL_PFDENA_CHECK 0 PT#INT_FEEDBACK__MODE_RADIO 1 PT#INCLK1_FREQ_EDIT_CHANGED 1 PT#SYNTH_WRAPPER_GEN_POSTFIX 0 PT#CLKLOSS_CHECK 0 PT#PHASE_SHIFT_UNIT2 deg PT#PHASE_SHIFT_UNIT1 deg PT#PHASE_SHIFT_UNIT0 deg PT#BANDWIDTH_USE_AUTO 1 PT#HAS_MANUAL_SWITCHOVER 1 PT#MULT_FACTOR2 5 PT#MULT_FACTOR1 5 PT#MULT_FACTOR0 5 PT#SPREAD_USE 0 PT#GLOCKED_MODE_CHECK 0 PT#DUTY_CYCLE2 50.00000000 PT#SACN_INPUTS_CHECK 0 PT#DUTY_CYCLE1 50.00000000 PT#INTENDED_DEVICE_FAMILY {Cyclone II} PT#DUTY_CYCLE0 50.00000000 PT#PLL_TARGET_HARCOPY_CHECK 0 PT#INCLK1_FREQ_UNIT_CHANGED 1 PT#RECONFIG_FILE ALTPLL1303329632025845.mif PT#ACTIVECLK_CHECK 0</parameter>
+  <parameter name="HIDDEN_CONSTANTS">CT#CLK2_DIVIDE_BY 5 CT#PORT_clk5 PORT_UNUSED CT#PORT_clk4 PORT_UNUSED CT#PORT_clk3 PORT_UNUSED CT#PORT_clk2 PORT_USED CT#PORT_clk1 PORT_USED CT#PORT_clk0 PORT_USED CT#VALID_LOCK_MULTIPLIER 1 CT#CLK0_MULTIPLY_BY 13 CT#PORT_SCANWRITE PORT_UNUSED CT#PORT_SCANACLR PORT_UNUSED CT#PORT_PFDENA PORT_UNUSED CT#PORT_PLLENA PORT_UNUSED CT#PORT_SCANDATA PORT_UNUSED CT#PORT_SCANCLKENA PORT_UNUSED CT#PORT_SCANDATAOUT PORT_UNUSED CT#LPM_TYPE altpll CT#CLK0_PHASE_SHIFT 0 CT#CLK1_DUTY_CYCLE 50 CT#PORT_PHASEDONE PORT_UNUSED CT#OPERATION_MODE NORMAL CT#PORT_CONFIGUPDATE PORT_UNUSED CT#CLK1_MULTIPLY_BY 13 CT#COMPENSATE_CLOCK CLK0 CT#PORT_CLKSWITCH PORT_UNUSED CT#INCLK0_INPUT_FREQUENCY 30517 CT#PORT_SCANDONE PORT_UNUSED CT#PORT_CLKLOSS PORT_UNUSED CT#PORT_INCLK1 PORT_UNUSED CT#AVALON_USE_SEPARATE_SYSCLK NO CT#PORT_INCLK0 PORT_USED CT#PORT_clkena5 PORT_UNUSED CT#PORT_clkena4 PORT_UNUSED CT#PORT_clkena3 PORT_UNUSED CT#PORT_clkena2 PORT_UNUSED CT#PORT_clkena1 PORT_UNUSED CT#PORT_clkena0 PORT_UNUSED CT#CLK1_PHASE_SHIFT 8803 CT#PORT_ARESET PORT_USED CT#INVALID_LOCK_MULTIPLIER 5 CT#CLK2_MULTIPLY_BY 13 CT#INTENDED_DEVICE_FAMILY {Cyclone II} CT#PORT_SCANREAD PORT_UNUSED CT#CLK2_DUTY_CYCLE 50 CT#PORT_PHASESTEP PORT_UNUSED CT#PORT_SCANCLK PORT_UNUSED CT#PORT_CLKBAD1 PORT_UNUSED CT#PORT_CLKBAD0 PORT_UNUSED CT#PORT_FBIN PORT_UNUSED CT#PORT_PHASEUPDOWN PORT_UNUSED CT#PORT_extclk3 PORT_UNUSED CT#PORT_extclk2 PORT_UNUSED CT#PORT_extclk1 PORT_UNUSED CT#PORT_PHASECOUNTERSELECT PORT_UNUSED CT#PORT_extclk0 PORT_UNUSED CT#PORT_ACTIVECLOCK PORT_UNUSED CT#CLK2_PHASE_SHIFT 8803 CT#CLK0_DUTY_CYCLE 50 CT#CLK0_DIVIDE_BY 5 CT#CLK1_DIVIDE_BY 5 CT#GATE_LOCK_SIGNAL NO CT#PORT_LOCKED PORT_USED</parameter>
+  <parameter name="HIDDEN_PRIVATES">PT#GLOCKED_FEATURE_ENABLED 1 PT#SPREAD_FEATURE_ENABLED 0 PT#BANDWIDTH_FREQ_UNIT MHz PT#CUR_DEDICATED_CLK c0 PT#INCLK0_FREQ_EDIT 32.768 PT#BANDWIDTH_PRESET Low PT#PLL_LVDS_PLL_CHECK 0 PT#BANDWIDTH_USE_PRESET 0 PT#AVALON_USE_SEPARATE_SYSCLK NO PT#PLL_ENHPLL_CHECK 0 PT#OUTPUT_FREQ_UNIT2 MHz PT#OUTPUT_FREQ_UNIT1 MHz PT#OUTPUT_FREQ_UNIT0 MHz PT#PHASE_RECONFIG_FEATURE_ENABLED 0 PT#CREATE_CLKBAD_CHECK 0 PT#CLKSWITCH_CHECK 1 PT#INCLK1_FREQ_EDIT 100.000 PT#NORMAL_MODE_RADIO 1 PT#SRC_SYNCH_COMP_RADIO 0 PT#PLL_ARESET_CHECK 1 PT#LONG_SCAN_RADIO 1 PT#SCAN_FEATURE_ENABLED 0 PT#USE_CLK2 1 PT#PHASE_RECONFIG_INPUTS_CHECK 0 PT#USE_CLK1 1 PT#USE_CLK0 1 PT#PRIMARY_CLK_COMBO inclk0 PT#BANDWIDTH 1.000 PT#GLOCKED_COUNTER_EDIT_CHANGED 1 PT#PLL_ENA_CHECK 0 PT#PLL_FASTPLL_CHECK 0 PT#SPREAD_FREQ_UNIT KHz PT#PLL_AUTOPLL_CHECK 1 PT#LVDS_PHASE_SHIFT_UNIT2 deg PT#LVDS_PHASE_SHIFT_UNIT1 deg PT#OUTPUT_FREQ_MODE2 0 PT#LVDS_PHASE_SHIFT_UNIT0 deg PT#OUTPUT_FREQ_MODE1 0 PT#SWITCHOVER_FEATURE_ENABLED 0 PT#MIG_DEVICE_SPEED_GRADE Any PT#OUTPUT_FREQ_MODE0 0 PT#BANDWIDTH_FEATURE_ENABLED 0 PT#INCLK0_FREQ_UNIT_COMBO MHz PT#ZERO_DELAY_RADIO 0 PT#OUTPUT_FREQ2 100.00000000 PT#OUTPUT_FREQ1 100.00000000 PT#OUTPUT_FREQ0 80.00000000 PT#SHORT_SCAN_RADIO 0 PT#LVDS_MODE_DATA_RATE_DIRTY 0 PT#CUR_FBIN_CLK c0 PT#PLL_ADVANCED_PARAM_CHECK 0 PT#CLKBAD_SWITCHOVER_CHECK 0 PT#PHASE_SHIFT_STEP_ENABLED_CHECK 0 PT#DEVICE_SPEED_GRADE 8 PT#PLL_FBMIMIC_CHECK 0 PT#LVDS_MODE_DATA_RATE {Not Available} PT#LOCKED_OUTPUT_CHECK 1 PT#SPREAD_PERCENT 0.500 PT#PHASE_SHIFT2 270.00000000 PT#PHASE_SHIFT1 270.00000000 PT#DIV_FACTOR2 5 PT#PHASE_SHIFT0 0.00000000 PT#DIV_FACTOR1 5 PT#DIV_FACTOR0 5 PT#CNX_NO_COMPENSATE_RADIO 0 PT#USE_CLKENA2 0 PT#USE_CLKENA1 0 PT#USE_CLKENA0 0 PT#CREATE_INCLK1_CHECK 0 PT#GLOCK_COUNTER_EDIT 1048575 PT#BANDWIDTH_USE_CUSTOM 0 PT#INCLK1_FREQ_UNIT_COMBO MHz PT#EFF_OUTPUT_FREQ_VALUE2 85.196800 PT#EFF_OUTPUT_FREQ_VALUE1 85.196800 PT#EFF_OUTPUT_FREQ_VALUE0 85.196800 PT#SPREAD_FREQ 50.000 PT#USE_MIL_SPEED_GRADE 0 PT#EXPLICIT_SWITCHOVER_COUNTER 0 PT#STICKY_CLK2 1 PT#STICKY_CLK1 1 PT#STICKY_CLK0 1 PT#EXT_FEEDBACK_RADIO 0 PT#MIRROR_CLK2 0 PT#MIRROR_CLK1 0 PT#SWITCHOVER_COUNT_EDIT 1 PT#MIRROR_CLK0 0 PT#SELF_RESET_LOCK_LOSS 0 PT#PLL_PFDENA_CHECK 0 PT#INT_FEEDBACK__MODE_RADIO 1 PT#INCLK1_FREQ_EDIT_CHANGED 1 PT#SYNTH_WRAPPER_GEN_POSTFIX 0 PT#CLKLOSS_CHECK 0 PT#PHASE_SHIFT_UNIT2 deg PT#PHASE_SHIFT_UNIT1 deg PT#PHASE_SHIFT_UNIT0 deg PT#BANDWIDTH_USE_AUTO 1 PT#HAS_MANUAL_SWITCHOVER 1 PT#MULT_FACTOR2 13 PT#MULT_FACTOR1 13 PT#MULT_FACTOR0 13 PT#SPREAD_USE 0 PT#GLOCKED_MODE_CHECK 0 PT#DUTY_CYCLE2 50.00000000 PT#SACN_INPUTS_CHECK 0 PT#DUTY_CYCLE1 50.00000000 PT#INTENDED_DEVICE_FAMILY {Cyclone II} PT#DUTY_CYCLE0 50.00000000 PT#PLL_TARGET_HARCOPY_CHECK 0 PT#INCLK1_FREQ_UNIT_CHANGED 1 PT#RECONFIG_FILE ALTPLL1303329632025845.mif PT#ACTIVECLK_CHECK 0</parameter>
   <parameter name="HIDDEN_USED_PORTS">UP#locked used UP#c2 used UP#c1 used UP#c0 used UP#areset used UP#inclk0 used</parameter>
   <parameter name="HIDDEN_IS_NUMERIC">IN#CLK0_DUTY_CYCLE 1 IN#CLK2_DIVIDE_BY 1 IN#PLL_TARGET_HARCOPY_CHECK 1 IN#CLK1_MULTIPLY_BY 1 IN#SWITCHOVER_COUNT_EDIT 1 IN#INCLK0_INPUT_FREQUENCY 1 IN#PLL_LVDS_PLL_CHECK 1 IN#PLL_AUTOPLL_CHECK 1 IN#PLL_FASTPLL_CHECK 1 IN#VALID_LOCK_MULTIPLIER 1 IN#CLK1_DUTY_CYCLE 1 IN#PLL_ENHPLL_CHECK 1 IN#CLK2_MULTIPLY_BY 1 IN#DIV_FACTOR2 1 IN#DIV_FACTOR1 1 IN#DIV_FACTOR0 1 IN#INVALID_LOCK_MULTIPLIER 1 IN#LVDS_MODE_DATA_RATE_DIRTY 1 IN#GLOCK_COUNTER_EDIT 1 IN#CLK2_DUTY_CYCLE 1 IN#CLK0_DIVIDE_BY 1 IN#MULT_FACTOR2 1 IN#MULT_FACTOR1 1 IN#MULT_FACTOR0 1 IN#CLK0_MULTIPLY_BY 1 IN#USE_MIL_SPEED_GRADE 1 IN#CLK1_DIVIDE_BY 1</parameter>
   <parameter name="HIDDEN_MF_PORTS">MF#areset 1 MF#clk 1 MF#locked 1 MF#inclk 1</parameter>
@@ -1993,7 +1993,7 @@
  </module>
  <module kind="altera_avalon_uart" version="10.1" enabled="1" name="uart">
   <parameter name="baud" value="115200" />
-  <parameter name="clockRate" value="81919998" />
+  <parameter name="clockRate" value="85196800" />
   <parameter name="dataBits" value="8" />
   <parameter name="fixedBaud" value="true" />
   <parameter name="parity" value="NONE" />
@@ -2011,7 +2011,7 @@
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="81919998" />
+  <parameter name="clockRate" value="85196800" />
   <parameter name="direction" value="Input" />
   <parameter name="edgeType" value="RISING" />
   <parameter name="generateIRQ" value="false" />
