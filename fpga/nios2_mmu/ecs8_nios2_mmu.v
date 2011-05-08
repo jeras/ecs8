@@ -54,31 +54,44 @@ module ecs8_nios2_mmu (
   inout  wire [15:0] ddr_dq
 );
 
-// reset signal
-wire rst_n;
+// system signals
+wire        rst_n;
+wire        clk_int;
+wire        pll_locked;
 
 // extra ddr clocks
-wire clk_ddr_write;
-wire clk_ddr_resynch;
+wire        clk_ddr_write;
+wire        clk_ddr_resynch;
+
+// LED signals
+wire  [1:0] led;
 
 // 1-wire signals
-wire onewire_e;
-wire onewire_i;
-wire onewire_p;
+wire        onewire_e;
+wire        onewire_i;
+wire        onewire_p;
 
-// reset source
-assign rst_n = button [1];
+// reset source (10ms debounce)
+reset #(500) reset (
+  .clk      (clk_int),
+  .rst_n_i  (~button[1] & pll_locked),
+  .rst_n_o  (rst_n)
+);
+
+// LED outputs
+assign led_n[0] = ~led[0];
+assign led_n[1] = ~led[1] & rst_n;
 
 // SOC instance
 soc_mmu soc (
   // system signals (clock, reset)
   .clk_pin                            (clk),
-  .clk_int                            (),
+  .clk_int                            (clk_int),
   .clk_ddr_write                      (clk_ddr_write),
   .clk_ddr_resynch                    (clk_ddr_resynch),
   .reset_n                            (rst_n),
   // PLL outputs
-  .locked_from_the_altpll_soc         (),
+  .locked_from_the_altpll_soc         (pll_locked),
   .phasedone_from_the_altpll_soc      (),
   // extra DDR clocks
   .write_clk_to_the_ddr_sdram         (clk_ddr_write),
@@ -104,7 +117,7 @@ soc_mmu soc (
   .owr_i_to_the_onewire               (onewire_i),
   .owr_p_from_the_onewire             (onewire_p),
   // PIO
-  .out_port_from_the_pio_o            (led_n),
+  .out_port_from_the_pio_o            (led),
   .in_port_to_the_pio_i               ({switch, button}),
   // Ethernet
   .iow_n_to_the_lan91c111             (enet_wr_n),
