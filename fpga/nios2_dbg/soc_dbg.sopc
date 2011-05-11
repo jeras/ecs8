@@ -197,29 +197,19 @@
          type = "boolean";
       }
    }
-   element cfi_flash.s1
+   element pio_o.s1
    {
-      datum _lockedAddress
-      {
-         value = "0";
-         type = "boolean";
-      }
       datum baseAddress
       {
-         value = "0";
+         value = "8454160";
          type = "long";
       }
    }
-   element pipeline.s1
+   element uart.s1
    {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
       datum baseAddress
       {
-         value = "67108864";
+         value = "8454208";
          type = "long";
       }
    }
@@ -228,6 +218,19 @@
       datum baseAddress
       {
          value = "8454176";
+         type = "long";
+      }
+   }
+   element lan91c111.s1
+   {
+      datum _lockedAddress
+      {
+         value = "0";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "8388608";
          type = "long";
       }
    }
@@ -252,15 +255,7 @@
          type = "long";
       }
    }
-   element uart.s1
-   {
-      datum baseAddress
-      {
-         value = "8454208";
-         type = "long";
-      }
-   }
-   element lan91c111.s1
+   element cfi_flash.s1
    {
       datum _lockedAddress
       {
@@ -269,15 +264,20 @@
       }
       datum baseAddress
       {
-         value = "8388608";
+         value = "0";
          type = "long";
       }
    }
-   element pio_o.s1
+   element pipeline.s1
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
-         value = "8454160";
+         value = "67108864";
          type = "long";
       }
    }
@@ -366,8 +366,8 @@
  <parameter name="maxAdditionalLatency" value="0" />
  <parameter name="projectName" value="ecs8_nios2_dbg.qpf" />
  <parameter name="sopcBorderPoints" value="true" />
- <parameter name="systemHash" value="20278193908" />
- <parameter name="timeStamp" value="1304872931467" />
+ <parameter name="systemHash" value="22633987798" />
+ <parameter name="timeStamp" value="1305140755145" />
  <module kind="clock_source" version="10.1" enabled="1" name="clk">
   <parameter name="clockFrequency" value="85196800" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -939,7 +939,7 @@
                      }
                      PRIVATE ADVANCED
                      {
-                        value = "0";
+                        value = "1";
                         type = "BOOLEAN";
                         enable = "1";
                      }
@@ -1035,13 +1035,13 @@
                      }
                      PRIVATE clock_pin_positive
                      {
-                        value = "ddr_ck_p";
+                        value = "ddr_ck_p[0]";
                         type = "STRING";
                         enable = "1";
                      }
                      PRIVATE clock_pin_negative
                      {
-                        value = "ddr_ck_n";
+                        value = "ddr_ck_n[0]";
                         type = "STRING";
                         enable = "1";
                      }
@@ -1149,7 +1149,7 @@
                      }
                      PRIVATE drive_strength
                      {
-                        value = "normal";
+                        value = "reduced";
                         type = "STRING";
                         enable = "1";
                      }

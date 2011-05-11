@@ -4,11 +4,16 @@
 *-16.918209 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] reset_tb.
 @28
-reset_tb.reset.clk
-@25
-reset_tb.reset.cnt[2:0]
-@28
+reset_tb.reset.clk_i
 reset_tb.reset.rst_n_i
+reset_tb.reset.syn_i[1:0]
+reset_tb.reset.rst_s_i
+reset_tb.reset.cnt[2:0]
+reset_tb.reset.ful
+reset_tb.reset.clk_o
+@29
+reset_tb.reset.syn_o[1:0]
+@28
 reset_tb.reset.rst_n_o
 [pattern_trace] 1
 [pattern_trace] 0

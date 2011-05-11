@@ -3,7 +3,8 @@
 module reset_tb;
 
 // local signals
-reg  clk;
+reg  clk_i;
+reg  clk_o;
 reg  rst_n_i;
 wire rst_n_o;
 
@@ -13,9 +14,13 @@ initial begin
   $dumpvars(0, reset_tb);
 end
 
-// clock generation
-initial     clk = 1'b1;
-always #(5) clk = ~clk;
+//  input clock generation
+initial     clk_i = 1'b1;
+always #(5) clk_i = ~clk_i;
+
+// output clock generation
+initial     clk_o = 1'b1;
+always #(5) clk_o = ~clk_o;
 
 // reset source generation
 initial begin
@@ -34,7 +39,8 @@ end
 reset #(
   .LN       (5)
 ) reset (
-  .clk      (clk),
+  .clk_i    (clk_i),
+  .clk_o    (clk_o),
   .rst_n_i  (rst_n_i),
   .rst_n_o  (rst_n_o)
 );

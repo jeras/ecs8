@@ -82,7 +82,8 @@ pll_soc pll (
 
 // reset source (10ms debounce)
 reset #(500) reset (
-  .clk      (clk_int),
+  .clk_i    (clk),
+  .clk_o    (clk_int),
   .rst_n_i  (~button[1] & pll_locked),
   .rst_n_o  (rst_n)
 );
@@ -96,11 +97,14 @@ soc_dbg soc (
   // system signals (clock, reset)
   .clk                                (clk_int),
   .reset_n                            (rst_n),
+  // extra DDR clocks
+  .write_clk_to_the_ddr_sdram         (clk_ddr_write),
+//  .resynch_clk_to_the_ddr_sdram       (clk_ddr_resynch),
   // DDR SDRAM
-  .clk_to_sdram_from_the_ddr_sdram    (ddr_ck_p),
-  .clk_to_sdram_n_from_the_ddr_sdram  (ddr_ck_n),
-  .ddr_cke_from_the_ddr_sdram         (ddr_cke),
-  .ddr_cs_n_from_the_ddr_sdram        (ddr_cs_n),
+  .clk_to_sdram_from_the_ddr_sdram    (ddr_ck_p[0]),
+  .clk_to_sdram_n_from_the_ddr_sdram  (ddr_ck_n[0]),
+  .ddr_cke_from_the_ddr_sdram         (ddr_cke[0]),
+  .ddr_cs_n_from_the_ddr_sdram        (ddr_cs_n[0]),
   .ddr_we_n_from_the_ddr_sdram        (ddr_we_n),
   .ddr_ras_n_from_the_ddr_sdram       (ddr_ras_n),
   .ddr_cas_n_from_the_ddr_sdram       (ddr_cas_n),

@@ -22,24 +22,48 @@
 //////////////////////////////////////////////////////////////////////////////
 
 module reset #(
-  parameter LN = 4,          // counter length
+  parameter SW = 2,          // synchronizer width 
+  parameter LN = 5,          // counter length
   parameter CW = $clog2(LN)  // counter width 
 )(
-  input  wire clk,           // clock
+  input  wire clk_i,         // clock input
+  input  wire clk_o,         // clock output
   input  wire rst_n_i,       // asynchronous active low reset input
-  output reg  rst_n_o        //  synchronous active low reset output
+  output wire rst_n_o        //  synchronous active low reset output
 );
 
-reg [CW-1:0] cnt;
+// local signals
+reg  [SW-1:0] syn_i;
+wire          rst_s_i;
+reg  [CW-1:0] cnt;
+reg           ful;
+reg  [SW-1:0] syn_o;
+
+
+// input clock synchronization
+always @ (posedge clk_i, negedge rst_n_i)
+if (~rst_n_i)  syn_i <= {SW{1'b0}};
+else           syn_i <= {syn_i[SW-2:0], 1'b1};
+
+// input clock synchronized reset
+assign rst_s_i = syn_i[SW-1];
 
 // counter
-always @ (posedge clk, negedge rst_n_i)
-if      (~rst_n_i)  cnt <= {CW{1'b0}};
-else if (~rst_n_o)  cnt <= cnt + 'd1;
+always @ (posedge clk_i, negedge rst_s_i)
+if (~rst_s_i)  cnt <= {CW{1'b0}};
+else           cnt <= cnt + {{CW-1{1'b0}}, ~ful};
 
-// output reset
-always @ (posedge clk, negedge rst_n_i)
-if      (~rst_n_i)  rst_n_o <= 1'b0;
-else if (cnt==LN)   rst_n_o <= 1'b1;
+// counter full
+always @ (posedge clk_i, negedge rst_s_i)
+if (~rst_s_i)  ful <= 1'b0;
+else           ful <= (cnt==LN) | ful;
 
-                endmodule
+// output clock synchronization
+always @ (posedge clk_o, negedge rst_s_i)
+if (~rst_s_i)  syn_o <= {SW{1'b0}};
+else           syn_o <= {syn_o[SW-2:0], ful};
+
+// output clock synchronized reset
+assign rst_n_o = syn_o[SW-1];
+
+endmodule
