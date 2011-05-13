@@ -197,64 +197,6 @@
          type = "boolean";
       }
    }
-   element pio_o.s1
-   {
-      datum baseAddress
-      {
-         value = "8454160";
-         type = "long";
-      }
-   }
-   element uart.s1
-   {
-      datum baseAddress
-      {
-         value = "8454208";
-         type = "long";
-      }
-   }
-   element timer.s1
-   {
-      datum baseAddress
-      {
-         value = "8454176";
-         type = "long";
-      }
-   }
-   element lan91c111.s1
-   {
-      datum _lockedAddress
-      {
-         value = "0";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "8388608";
-         type = "long";
-      }
-   }
-   element ddr_sdram.s1
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "33554432";
-         type = "long";
-      }
-   }
-   element pio_i.s1
-   {
-      datum baseAddress
-      {
-         value = "8454240";
-         type = "long";
-      }
-   }
    element cfi_flash.s1
    {
       datum _lockedAddress
@@ -281,11 +223,69 @@
          type = "long";
       }
    }
+   element lan91c111.s1
+   {
+      datum _lockedAddress
+      {
+         value = "0";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "8388608";
+         type = "long";
+      }
+   }
+   element pio_i.s1
+   {
+      datum baseAddress
+      {
+         value = "8454240";
+         type = "long";
+      }
+   }
+   element timer.s1
+   {
+      datum baseAddress
+      {
+         value = "8454176";
+         type = "long";
+      }
+   }
+   element uart.s1
+   {
+      datum baseAddress
+      {
+         value = "8454208";
+         type = "long";
+      }
+   }
+   element pio_o.s1
+   {
+      datum baseAddress
+      {
+         value = "8454160";
+         type = "long";
+      }
+   }
    element onewire.s1
    {
       datum baseAddress
       {
          value = "8454256";
+         type = "long";
+      }
+   }
+   element ddr_sdram.s1
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "33554432";
          type = "long";
       }
    }
@@ -366,8 +366,8 @@
  <parameter name="maxAdditionalLatency" value="0" />
  <parameter name="projectName" value="ecs8_nios2_dbg.qpf" />
  <parameter name="sopcBorderPoints" value="true" />
- <parameter name="systemHash" value="22633987798" />
- <parameter name="timeStamp" value="1305140755145" />
+ <parameter name="systemHash" value="22816039510" />
+ <parameter name="timeStamp" value="1305322713353" />
  <module kind="clock_source" version="10.1" enabled="1" name="clk">
   <parameter name="clockFrequency" value="85196800" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -582,7 +582,7 @@
   <parameter name="internalIrqMaskSystemInfo" value="31" />
   <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='epcs.epcs_control_port' start='0x0' end='0x800' /><slave name='cpu.jtag_debug_module' start='0x800' end='0x1000' /><slave name='ddr_sdram.s1' start='0x2000000' end='0x4000000' /></address-map>]]></parameter>
   <parameter name="instAddrWidth" value="26" />
-  <parameter name="impl" value="Tiny" />
+  <parameter name="impl" value="Fast" />
   <parameter name="icache_size" value="_4096" />
   <parameter name="icache_ramBlockType" value="Automatic" />
   <parameter name="icache_numTCIM" value="_0" />
