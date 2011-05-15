@@ -54,10 +54,10 @@ module ecs8_nios2_dbg (
   inout  wire [15:0] ddr_dq
 );
 
-// system signals
+// resets
 wire        rst_n;
 
-// extra ddr clocks
+// clocks
 wire        clk_soc;
 wire        clk_ddr;
 wire        clk_ddr_write;

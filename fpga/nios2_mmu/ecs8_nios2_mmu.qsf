@@ -40,7 +40,7 @@ set_global_assignment -name DEVICE EP2C8Q208C8
 set_global_assignment -name TOP_LEVEL_ENTITY ecs8_nios2_mmu
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "10.1 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "21:03:12  APRIL 20, 2011"
-set_global_assignment -name LAST_QUARTUS_VERSION "10.1 SP1"
+set_global_assignment -name LAST_QUARTUS_VERSION 11.0
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name DEVICE_FILTER_PACKAGE "ANY QFP"
@@ -415,6 +415,5 @@ set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to uart_user_txd
 ################################################################################
 # timing from SOPC builder
 ################################################################################
-
 
 

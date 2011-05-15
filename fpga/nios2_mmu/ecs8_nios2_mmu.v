@@ -54,14 +54,15 @@ module ecs8_nios2_mmu (
   inout  wire [15:0] ddr_dq
 );
 
-// system signals
+// resets
 wire        rst_n;
-wire        clk_int;
-wire        pll_locked;
 
-// extra ddr clocks
+// clocks
+wire        clk_soc;
+wire        clk_ddr;
 wire        clk_ddr_write;
-wire        clk_ddr_resynch;
+//wire        clk_ddr_resynch;
+wire        pll_soc_locked;
 
 // LED signals
 wire  [1:0] led;
@@ -71,20 +72,21 @@ wire        onewire_e;
 wire        onewire_i;
 wire        onewire_p;
 
-// PLL
-pll_soc pll (
+// PLL SOC
+pll_soc pll_soc (
   .inclk0  (clk),              //       32.768MHz
-  .c0      (clk_int),          // 13/5  85.1968MHz    0deg
-  .c1      (clk_ddr_write),    // 13/5  85.1968MHz  270deg
-  .c2      (clk_ddr_resynch),  // 13/5  85.1968MHz  270deg
-  .locked  (pll_locked)
+  .c0      (clk_soc),          //  2/1  65.536MHz     0deg
+  .c1      (clk_ddr),          // 13/5  85.1968MHz    0deg
+  .c2      (clk_ddr_write),    // 13/5  85.1968MHz  270deg
+//.c2      (clk_ddr_resynch),  // 13/5  85.1968MHz  270deg
+  .locked  (pll_soc_locked)
 );
 
 // reset source (10ms debounce)
 reset #(500) reset (
   .clk_i    (clk),
-  .clk_o    (clk_int),
-  .rst_n_i  (~button[1] & pll_locked),
+  .clk_o    (clk_soc),
+  .rst_n_i  (~button[1] & pll_soc_locked),
   .rst_n_o  (rst_n)
 );
 
@@ -95,7 +97,8 @@ assign led_n[1] = ~led[1] & rst_n;
 // SOC instance
 soc_mmu soc (
   // system signals (clock, reset)
-  .clk                                (clk_int),
+  .clk_soc                            (clk_soc),
+  .clk_ddr                            (clk_ddr),
   .reset_n                            (rst_n),
   // extra DDR clocks
   .write_clk_to_the_ddr_sdram         (clk_ddr_write),
