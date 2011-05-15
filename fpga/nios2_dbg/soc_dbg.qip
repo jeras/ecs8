@@ -1,11 +1,7 @@
-# clk
+# clk_soc
 # epcs
 # cfi_flash
 # lan91c111
-# onewire
-set_global_assignment -name TCL_FILE /home/izi/Workplace/ecs8/sockit_owm/sockit_owm_hw.tcl
-set_global_assignment -name VERILOG_FILE /home/izi/Workplace/ecs8/sockit_owm/hdl/sockit_owm.v
-set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) onewire.v]
 # tri_state
 # timer
 # pio_o
@@ -17,7 +13,13 @@ set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) onewire
 set_global_assignment -name SDC_FILE [file join $::quartus(qip_path) cpu.sdc]
 set_global_assignment -name SOURCE_FILE [file join $::quartus(qip_path) cpu.ocp]
 # ddr_sdram
+# clock_crossing
+# clk_ddr
+# onewire
+set_global_assignment -name TCL_FILE     ../../sockit_owm/sockit_owm_hw.tcl
+set_global_assignment -name VERILOG_FILE ../../sockit_owm/hdl/sockit_owm.v
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) onewire.v]
 # sysid
 # null
-set_global_assignment -name SOPC_BUILDER_SIGNATURE_ID 0022FB59BE740000012FEB4C9D04 
+set_global_assignment -name SOPC_BUILDER_SIGNATURE_ID 00242165AF9F0000012FEFE93813 
  
