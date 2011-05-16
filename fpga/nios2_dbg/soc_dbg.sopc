@@ -228,19 +228,6 @@
          type = "boolean";
       }
    }
-   element pio_i.s1
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "9437232";
-         type = "long";
-      }
-   }
    element cfi_flash.s1
    {
       datum _lockedAddress
@@ -264,6 +251,32 @@
       datum baseAddress
       {
          value = "0";
+         type = "long";
+      }
+   }
+   element lan91c111.s1
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "8388608";
+         type = "long";
+      }
+   }
+   element uart.s1
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "9437248";
          type = "long";
       }
    }
@@ -293,7 +306,7 @@
          type = "long";
       }
    }
-   element pio_o.s1
+   element timer.s1
    {
       datum _lockedAddress
       {
@@ -302,7 +315,7 @@
       }
       datum baseAddress
       {
-         value = "9437216";
+         value = "9437184";
          type = "long";
       }
    }
@@ -319,7 +332,7 @@
          type = "long";
       }
    }
-   element lan91c111.s1
+   element pio_o.s1
    {
       datum _lockedAddress
       {
@@ -328,11 +341,11 @@
       }
       datum baseAddress
       {
-         value = "8388608";
+         value = "9437216";
          type = "long";
       }
    }
-   element timer.s1
+   element pio_i.s1
    {
       datum _lockedAddress
       {
@@ -341,20 +354,7 @@
       }
       datum baseAddress
       {
-         value = "9437184";
-         type = "long";
-      }
-   }
-   element uart.s1
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "9437248";
+         value = "9437232";
          type = "long";
       }
    }
@@ -430,8 +430,8 @@
  <parameter name="maxAdditionalLatency" value="0" />
  <parameter name="projectName" value="ecs8_nios2_dbg.qpf" />
  <parameter name="sopcBorderPoints" value="true" />
- <parameter name="systemHash" value="-1965795748" />
- <parameter name="timeStamp" value="1305400078770" />
+ <parameter name="systemHash" value="-5149503042" />
+ <parameter name="timeStamp" value="1305473609829" />
  <module kind="clock_source" version="11.0" enabled="1" name="clk_soc">
   <parameter name="clockFrequency" value="65536000" />
   <parameter name="clockFrequencyKnown" value="true" />
